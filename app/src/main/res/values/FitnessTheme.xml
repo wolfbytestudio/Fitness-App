@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="FitnessTheme" parent="android:Theme.Holo.Light">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">#1E1F22</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">#F0F1F4</item>
+        <item name="android:colorForeground">#F0F1F4</item>
+        <item name="android:statusBarColor">#0F7BD7</item>
+        <item name="android:colorControlNormal">#F0F1F4</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:screenOrientation">portrait</item>
+        <item name="android:colorControlActivated">#37A3FF</item>
+        <item name="android:colorControlHighlight">#37A3FF</item>
+    </style>
+
+    
+</resources>

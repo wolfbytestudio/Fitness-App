@@ -1,0 +1,111 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:theme="@style/FitnessTheme"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtSeed"
+        android:background="#2D2E31"
+        android:textColor="#F0F1F4"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:width="200dp"
+        android:singleLine="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Generate"
+        android:textColor="#F0F1F4"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/txtSeed"
+        android:id="@+id/btnGenerate" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnGenerate"
+        android:background="@drawable/workout_info_border"
+        android:paddingBottom="5dp"
+        android:id="@+id/workoutDetails">
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:id="@+id/leftInformation"
+            android:paddingTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:textSize="16dp"
+                android:id="@+id/lblWorkoutName"
+                android:text="Name: Zack"
+                android:paddingLeft="5dp"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:textSize="16dp"
+                android:id="@+id/lblWorkoutType"
+                android:layout_below="@id/lblWorkoutName"
+                android:text="Type: Decline"
+                android:paddingLeft="5dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:id="@+id/rightInformation"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/leftInformation">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:textSize="16dp"
+                android:id="@+id/lblDifficulty"
+                android:text="Difficulty: Insane"
+                android:paddingLeft="5dp"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:textSize="16dp"
+                android:id="@+id/lblRounds"
+                android:layout_below="@id/lblDifficulty"
+                android:text="Rounds: 10"
+                android:paddingLeft="5dp"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:textSize="16dp"
+            android:id="@+id/lblMuscleGroups"
+            android:layout_below="@id/rightInformation"
+            android:text="Muscle Groups: Lower back, Hamstrings, Glutes, Quadriceps, Top abs, Obliques, Bottom abs"
+            android:paddingLeft="5dp"/>
+    </RelativeLayout>
+
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lstRounds"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/workoutDetails" />
+
+
+
+</RelativeLayout>
