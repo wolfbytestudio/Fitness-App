@@ -1,8 +1,5 @@
 package com.wolfbytestudio.fitness.generator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.wolfbytestudio.fitness.cache.Cache;
 import com.wolfbytestudio.fitness.cache.Exercises;
 import com.wolfbytestudio.fitness.exercise.Difficulty;
@@ -13,144 +10,150 @@ import com.wolfbytestudio.fitness.workout.Workout;
 import com.wolfbytestudio.fitness.workout.WorkoutRound;
 import com.wolfbytestudio.fitness.workout.WorkoutType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Procedurally generated workout class
  */
 public class GeneratedWorkout
 {
 
-	/**
-	 * Private constructor, cannot initialize this class
-	 * @throws ExceptionInInitializerError to stop initializing this class
-	 */
-	private GeneratedWorkout()
-	{
-		throw new ExceptionInInitializerError("Cannot initialize this class");
-	}
+    private static String name;
 
-	/**
-	 * Generates a workout based on a seed's hashcode
-	 * @param seed - the seed in a string format
-	 * @return - see generateWorkout() return type
-	 */
-	public static Workout generateWorkout(String seed)
-	{
-		name = seed;
-		return generateWorkout(seed.hashCode());
-	}
+    /**
+     * Private constructor, cannot initialize this class
+     *
+     * @throws ExceptionInInitializerError to stop initializing this class
+     */
+    private GeneratedWorkout()
+    {
+        throw new ExceptionInInitializerError("Cannot initialize this class");
+    }
 
-	private static String name;
+    /**
+     * Generates a workout based on a seed's hashcode
+     *
+     * @param seed - the seed in a string format
+     * @return - see generateWorkout() return type
+     */
+    public static Workout generateWorkout(String seed)
+    {
+        name = seed;
+        return generateWorkout(seed.hashCode());
+    }
 
-	/**
-	 * Generates a workout based on a @seed
-	 * @param seed - the seed
-	 * @return - the generated workout
-	 */
-	public static Workout generateWorkout(int seed)
-	{
-		Workout workout = new Workout();
+    /**
+     * Generates a workout based on a @seed
+     *
+     * @param seed - the seed
+     * @return - the generated workout
+     */
+    public static Workout generateWorkout(int seed)
+    {
+        Workout workout = new Workout();
 
-		workout.setWorkoutName(name);
-		ProceduralGeneratedRandom rnd = new ProceduralGeneratedRandom(seed);
+        workout.setWorkoutName(name);
+        ProceduralGeneratedRandom rnd = new ProceduralGeneratedRandom(seed);
 
-		Difficulty dif = Difficulty.getRandom(rnd);
-		workout.setDifficulty(dif);
-		int rounds = rnd.getRandomBoolean() == true ? dif.getMultiplier() : dif.getMultiplier() + 2;
+        Difficulty dif = Difficulty.getRandom(rnd);
+        workout.setDifficulty(dif);
+        int rounds = rnd.getRandomBoolean() == true ? dif.getMultiplier() : dif.getMultiplier() + 2;
 
-		WorkoutType wt = WorkoutType.getRandom(rnd);
-		workout.setType(wt);
+        WorkoutType wt = WorkoutType.getRandom(rnd);
+        workout.setType(wt);
 
-		System.out.println("Difficulty Level: "+dif.name());
-		System.out.println("Workout Type: "+ wt.name());
-		System.out.println("Rounds " + rounds + "\n\n");
+        System.out.println("Difficulty Level: " + dif.name());
+        System.out.println("Workout Type: " + wt.name());
+        System.out.println("Rounds " + rounds + "\n\n");
 
-		List<Exercise> list = generateExerciseList(rnd);
+        List<Exercise> list = generateExerciseList(rnd);
 
-		WorkoutRound round = generateWorkoutRound(dif, rnd, list);
-
-
-
-		round.addSet(new ExerciseSet(dif.getMultiplier() * 10, Exercises.getRest()));
-
-		for(int i = 0; i < rounds; i++)
-		{
-			workout.addRound(round);
-			System.out.println(round.toString());
-		}
+        WorkoutRound round = generateWorkoutRound(dif, rnd, list);
 
 
+        round.addSet(new ExerciseSet(dif.getMultiplier() * 10, Exercises.getRest()));
 
-		return workout;
-	}
+        for (int i = 0; i < rounds; i++)
+        {
+            workout.addRound(round);
+            System.out.println(round.toString());
+        }
 
-	/**
-	 * Generated the amount of work out rounds based of difficulty
-	 * @param dif - The Difficulty of the workout
-	 * @param rnd - The random number Generator to generate the same result based on seed
-	 * @param list - The list of exercises
-	 * @return - A Workout Round object
-	 */
-	private static WorkoutRound generateWorkoutRound(Difficulty dif, ProceduralGeneratedRandom rnd, List<Exercise> list)
-	{
-		WorkoutRound round = new WorkoutRound();
 
-		for(Exercise exersice : list)
-		{
-			round.addSet(new ExerciseSet(generateAmount(exersice, dif, rnd), exersice));
-		}
+        return workout;
+    }
 
-		return round;
-	}
+    /**
+     * Generated the amount of work out rounds based of difficulty
+     *
+     * @param dif  - The Difficulty of the workout
+     * @param rnd  - The random number Generator to generate the same result based on seed
+     * @param list - The list of exercises
+     * @return - A Workout Round object
+     */
+    private static WorkoutRound generateWorkoutRound(Difficulty dif, ProceduralGeneratedRandom rnd, List<Exercise> list)
+    {
+        WorkoutRound round = new WorkoutRound();
 
-	/**
-	 * Generates the amount of exercise reps/seconds to do
-	 * @param ex - The exercise itself
-	 * @param dif - The Difficulty of the workout
-	 * @param rnd - The random number Generator to generate the same result based on seed
-	 * @return - The workout rep/seconds amount
-	 */
-	private static int generateAmount(Exercise ex, Difficulty dif, ProceduralGeneratedRandom rnd)
-	{
-		int amount = 0;
-		int multiplier = rnd.getRandomInt(5) + 1;
+        for (Exercise exersice : list)
+        {
+            round.addSet(new ExerciseSet(generateAmount(exersice, dif, rnd), exersice));
+        }
 
-		amount = (((dif.getMultiplier() * 2) * multiplier) / 5) * 5;
+        return round;
+    }
 
-		if(amount == 0)
-		{
-			amount = 5;
-		}
+    /**
+     * Generates the amount of exercise reps/seconds to do
+     *
+     * @param ex  - The exercise itself
+     * @param dif - The Difficulty of the workout
+     * @param rnd - The random number Generator to generate the same result based on seed
+     * @return - The workout rep/seconds amount
+     */
+    private static int generateAmount(Exercise ex, Difficulty dif, ProceduralGeneratedRandom rnd)
+    {
+        int amount = 0;
+        int multiplier = rnd.getRandomInt(5) + 1;
 
-		return Math.abs(amount);
-	}
+        amount = (((dif.getMultiplier() * 2) * multiplier) / 5) * 5;
 
-	/**
-	 * Generates a list of exercises to be placed
-	 * into workout rounds. This will be the same
-	 * for every workout round
-	 * @param rnd - The random number generator
-	 * @return - A collection of exercises
-	 */
-	private static List<Exercise> generateExerciseList(ProceduralGeneratedRandom rnd)
-	{
-		int amount = rnd.getRandomBoolean() == true ? 3 : 5;
+        if (amount == 0)
+        {
+            amount = 5;
+        }
 
-		List<Exercise> ls = new ArrayList<>();
-		for(int i = 0; i < amount; i++)
-		{
-			Exercise current = Cache.getCache().getExercises().getRandom(rnd);
+        return Math.abs(amount);
+    }
 
-			while(ls.contains(current))
-			{
-				current = Cache.getCache().getExercises().getRandom(rnd);
-			}
+    /**
+     * Generates a list of exercises to be placed
+     * into workout rounds. This will be the same
+     * for every workout round
+     *
+     * @param rnd - The random number generator
+     * @return - A collection of exercises
+     */
+    private static List<Exercise> generateExerciseList(ProceduralGeneratedRandom rnd)
+    {
+        int amount = rnd.getRandomBoolean() == true ? 3 : 5;
 
-			ls.add(current);
-		}
+        List<Exercise> ls = new ArrayList<>();
+        for (int i = 0; i < amount; i++)
+        {
+            Exercise current = Cache.getCache().getExercises().getRandom(rnd);
 
-		return ls;
-	}
+            while (ls.contains(current))
+            {
+                current = Cache.getCache().getExercises().getRandom(rnd);
+            }
 
+            ls.add(current);
+        }
+
+        return ls;
+    }
 
 
 }

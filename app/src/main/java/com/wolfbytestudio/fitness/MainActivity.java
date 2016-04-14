@@ -1,7 +1,6 @@
 package com.wolfbytestudio.fitness;
 
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,16 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wolfbytestudio.fitness.generator.GeneratedWorkout;
 import com.wolfbytestudio.fitness.generator.UUIDGenerator;
 import com.wolfbytestudio.fitness.ui.adaptor.WorkoutRoundAdapter;
 import com.wolfbytestudio.fitness.util.Utility;
-
-import org.w3c.dom.Text;
-
-import java.util.UUID;
 
 public class MainActivity extends Activity
 {
@@ -58,21 +52,23 @@ public class MainActivity extends Activity
 
         lstRounds = (ListView) findViewById(R.id.lstRounds);
         updateDetails();
-        btnGenerate.setOnClickListener(new View.OnClickListener() {
+        btnGenerate.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 if (txtSeed.getText().toString().equalsIgnoreCase("rnd"))
                 {
                     setSeed(UUIDGenerator.getRandomUUID(6));
-                }
-                else
+                } else
                 {
                     updateSeed();
                 }
             }
         });
 
-        btnGenerate.setOnLongClickListener(new View.OnLongClickListener() {
+        btnGenerate.setOnLongClickListener(new View.OnLongClickListener()
+        {
             @Override
             public boolean onLongClick(View v)
             {
@@ -81,9 +77,11 @@ public class MainActivity extends Activity
             }
         });
 
-        txtSeed.setOnLongClickListener(new View.OnLongClickListener() {
+        txtSeed.setOnLongClickListener(new View.OnLongClickListener()
+        {
             @Override
-            public boolean onLongClick(View v) {
+            public boolean onLongClick(View v)
+            {
                 if (txtSeed.getText().toString().equalsIgnoreCase("rnd"))
                 {
                     setSeed(UUIDGenerator.getRandomUUID(6));
@@ -93,11 +91,13 @@ public class MainActivity extends Activity
             }
         });
 
-        txtSeed.setOnClickListener(new View.OnClickListener() {
+        txtSeed.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v)
             {
-                if (txtSeed.getText().toString().equalsIgnoreCase("rnd")) {
+                if (txtSeed.getText().toString().equalsIgnoreCase("rnd"))
+                {
                     setSeed(UUIDGenerator.getRandomUUID(6));
                 }
             }
@@ -110,7 +110,7 @@ public class MainActivity extends Activity
 
     private void setSeed(String seed)
     {
-        if(!txtSeed.getText().toString().equalsIgnoreCase("rnd"))
+        if (!txtSeed.getText().toString().equalsIgnoreCase("rnd"))
         {
             txtSeed.setText(seed);
         }
@@ -128,7 +128,7 @@ public class MainActivity extends Activity
 
     public void updateDetails()
     {
-        lblName.setText("Name: " +Utility.workout.getWorkoutName());
+        lblName.setText("Name: " + Utility.workout.getWorkoutName());
         lblDifficulty.setText("Difficulty: " + Utility.workout.getDifficulty().name());
         lblType.setText("Experience: " + Utility.workout.getExperience());
         lblRounds.setText("Rounds: " + Utility.workout.getRounds().size());

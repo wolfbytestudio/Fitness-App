@@ -16,11 +16,12 @@ import com.wolfbytestudio.fitness.workout.WorkoutRound;
 /**
  * Created by Zack on 30/03/2016.
  */
-public class ExerciseAdapter extends BaseAdapter {
+public class ExerciseAdapter extends BaseAdapter
+{
 
+    private static LayoutInflater inflater = null;
     private WorkoutRound round;
     private MainActivity owner;
-    private static LayoutInflater inflater = null;
 
     public ExerciseAdapter(WorkoutRound round, MainActivity owner, Context context)
     {
@@ -31,25 +32,29 @@ public class ExerciseAdapter extends BaseAdapter {
 
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return round.getSets().size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public Object getItem(int position)
+    {
         return position;
     }
 
     @Override
-    public long getItemId(int position) {
+    public long getItemId(int position)
+    {
         return position;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
         View view = convertView;
 
-        if(convertView == null)
+        if (convertView == null)
         {
             view = inflater.inflate(R.layout.exercise, null);
         }
@@ -57,7 +62,7 @@ public class ExerciseAdapter extends BaseAdapter {
         ExerciseSet exercise = round.getSet(position);
 
         TextView lblName = (TextView) view.findViewById(R.id.lblExerciseName);
-        lblName.setText(exercise.getFormattedAmount() + " "+ exercise.getExercise().getName());
+        lblName.setText(exercise.getFormattedAmount() + " " + exercise.getExercise().getName());
 
         Utility.workout.print();
 

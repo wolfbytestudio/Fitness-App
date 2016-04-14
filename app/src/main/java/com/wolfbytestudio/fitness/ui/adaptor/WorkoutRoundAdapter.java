@@ -20,8 +20,8 @@ import com.wolfbytestudio.fitness.workout.WorkoutRound;
 public class WorkoutRoundAdapter extends BaseAdapter
 {
 
-    private MainActivity owner;
     private static LayoutInflater inflater = null;
+    private MainActivity owner;
     private ExerciseAdapter exerciseAdapter;
 
     public WorkoutRoundAdapter(Context context, MainActivity owner, Workout workout)
@@ -32,17 +32,20 @@ public class WorkoutRoundAdapter extends BaseAdapter
 
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return Utility.workout.getRounds().size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public Object getItem(int position)
+    {
         return position;
     }
 
     @Override
-    public long getItemId(int position) {
+    public long getItemId(int position)
+    {
         return position;
     }
 
@@ -51,7 +54,8 @@ public class WorkoutRoundAdapter extends BaseAdapter
     {
         View view = convertView;
 
-        if(convertView == null) {
+        if (convertView == null)
+        {
             view = inflater.inflate(R.layout.workout_round, null);
         }
 

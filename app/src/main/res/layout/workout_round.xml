@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/lblRound"
         android:layout_width="fill_parent"
         android:layout_height="35dp"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
-        android:id="@+id/lblRound"
         android:text="Round 1"
-        android:textStyle="italic"
         android:textColor="#555659"
-        android:textSize="14dp"/>
+        android:textSize="14dp"
+        android:textStyle="italic" />
 
     <ListView
+        android:id="@+id/lstWorkoutComponents"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:id="@+id/lstWorkoutComponents"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/lblRound"
-        android:layout_alignParentStart="true" />
+        android:divider="@null"
+        android:dividerHeight="0dp" />
 
 
 </RelativeLayout>
