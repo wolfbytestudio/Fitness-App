@@ -10,18 +10,46 @@ import com.wolfbytestudio.fitness.util.Utility;
 public enum Difficulty
 {
 
+    /**
+     * Easy Difficulty
+     */
     EASY(1),
+
+    /**
+     * Medium difficulty
+     */
     MEDIUM(3),
+
+    /**
+     * Hard Difficulty
+     */
     HARD(5),
+
+    /**
+     * Insane difficulty
+     */
     INSANE(8);
 
+    /**
+     * Difficulty Multiplier
+     *
+     * Used for generating the amount of exercises and rounds
+     */
     private final int multiplier;
 
-    private Difficulty(final int multiplier)
+    /**
+     * Enum Constructor
+     * @param multiplier - the difficulty multiplier
+     */
+    Difficulty(final int multiplier)
     {
         this.multiplier = multiplier;
     }
 
+    /**
+     * The amount of difficulties there is
+     * @return
+     */
     public static int count()
     {
         return values().length;
@@ -51,6 +79,11 @@ public enum Difficulty
         return values()[Utility.getRandomIndex(count())];
     }
 
+    /**
+     * Gets the multiplier
+     *
+     * @return - the multiplier
+     */
     public int getMultiplier()
     {
         return multiplier;

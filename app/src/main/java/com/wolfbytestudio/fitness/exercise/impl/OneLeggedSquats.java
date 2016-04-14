@@ -41,7 +41,7 @@ public class OneLeggedSquats extends Exercise
     /**
      * The difficulty of the exercise
      */
-    private static final Difficulty DIFFICULTY = Difficulty.HARD;
+    private static final Difficulty DIFFICULTY = Difficulty.INSANE;
 
     /**
      * The category of the exercise
@@ -51,7 +51,7 @@ public class OneLeggedSquats extends Exercise
     /**
      * The points gained for 1 rep
      */
-    private static final int POINTS = 3;
+    private static final int POINTS = 5;
 
     /**
      * Is the exercise Timed?

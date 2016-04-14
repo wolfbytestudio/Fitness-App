@@ -9,6 +9,7 @@ import com.wolfbytestudio.fitness.workout.Workout;
 
 import java.util.Date;
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Contains utility methods
@@ -20,20 +21,23 @@ public class Utility
 {
 
     /**
+     * Private Utility class
+     */
+    private Utility(){}
+
+    /**
      * Random object
      */
     private static final Random RND = new Random();
-
-    /**
-     * The current workout object, place holder
-     */
-    public static Workout workout = null;
-
     /**
      * Bad value exception
      */
     private static final IllegalArgumentException BAD_VALUE =
             new IllegalArgumentException("Value must be positive");
+    /**
+     * The current workout object, place holder
+     */
+    public static Workout workout = null;
 
     /**
      * Gets a random index with a maximum
@@ -47,6 +51,20 @@ public class Utility
 
         return RND.nextInt(max);
     }
+
+    /**
+     * Gets a random uuid with a length
+     * removes all - in the uuid
+     *
+     * @param length - the length of the uuid
+     * @return - the new uuid
+     */
+    public static String getRandomUUID(int length)
+    {
+        String seed = UUID.randomUUID().toString();
+        return seed.substring(0, length).replace("-", "");
+    }
+
 
     /**
      * Formats a string value to capitalize the first letter

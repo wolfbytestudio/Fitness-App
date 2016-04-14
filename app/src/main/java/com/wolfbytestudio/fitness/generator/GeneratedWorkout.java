@@ -114,7 +114,8 @@ public class GeneratedWorkout
      */
     private static int generateAmount(Exercise ex, Difficulty dif, ProceduralGeneratedRandom rnd)
     {
-        int amount = 0;
+        int amount;
+
         int multiplier = rnd.getRandomInt(5) + 1;
 
         amount = (((dif.getMultiplier() * 2) * multiplier) / 5) * 5;

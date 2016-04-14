@@ -11,7 +11,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.wolfbytestudio.fitness.generator.GeneratedWorkout;
-import com.wolfbytestudio.fitness.generator.UUIDGenerator;
 import com.wolfbytestudio.fitness.ui.adaptor.WorkoutRoundAdapter;
 import com.wolfbytestudio.fitness.util.Utility;
 
@@ -59,7 +58,7 @@ public class MainActivity extends Activity
             {
                 if (txtSeed.getText().toString().equalsIgnoreCase("rnd"))
                 {
-                    setSeed(UUIDGenerator.getRandomUUID(6));
+                    setSeed(Utility.getRandomUUID(6));
                 } else
                 {
                     updateSeed();
@@ -72,7 +71,7 @@ public class MainActivity extends Activity
             @Override
             public boolean onLongClick(View v)
             {
-                setSeed(UUIDGenerator.getRandomUUID(6));
+                setSeed(Utility.getRandomUUID(6));
                 return true;
             }
         });
@@ -84,7 +83,7 @@ public class MainActivity extends Activity
             {
                 if (txtSeed.getText().toString().equalsIgnoreCase("rnd"))
                 {
-                    setSeed(UUIDGenerator.getRandomUUID(6));
+                    setSeed(Utility.getRandomUUID(6));
                 }
 
                 return true;
@@ -98,7 +97,7 @@ public class MainActivity extends Activity
             {
                 if (txtSeed.getText().toString().equalsIgnoreCase("rnd"))
                 {
-                    setSeed(UUIDGenerator.getRandomUUID(6));
+                    setSeed(Utility.getRandomUUID(6));
                 }
             }
         });
@@ -138,7 +137,6 @@ public class MainActivity extends Activity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
