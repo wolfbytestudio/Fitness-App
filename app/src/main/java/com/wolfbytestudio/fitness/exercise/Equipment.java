@@ -10,7 +10,7 @@ import com.wolfbytestudio.fitness.util.Utility;
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  *
  */
-public enum Equipment implements Serializable
+public enum Equipment
 {
 
 	/**

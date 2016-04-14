@@ -12,7 +12,7 @@ import com.wolfbytestudio.fitness.util.Utility;
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  *
  */
-public enum MuscleGroup implements Serializable
+public enum MuscleGroup
 {
 
 	TOP_ABS,

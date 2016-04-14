@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  *
  */
-public enum Category implements Serializable
+public enum Category
 {
 	/**
 	 * The Strength Category

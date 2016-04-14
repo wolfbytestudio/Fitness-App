@@ -11,7 +11,7 @@ import com.wolfbytestudio.fitness.util.Utility;
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  *
  */
-public enum Difficulty implements Serializable
+public enum Difficulty
 {
 
 	EASY(1),
