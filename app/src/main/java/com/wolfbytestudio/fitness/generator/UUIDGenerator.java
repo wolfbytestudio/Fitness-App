@@ -1,7 +1,5 @@
 package com.wolfbytestudio.fitness.generator;
 
-import com.wolfbytestudio.fitness.Constants;
-
 import java.util.UUID;
 
 /**

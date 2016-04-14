@@ -26,7 +26,7 @@ public class Exercises
 	 * Gets the rest exercise
 	 * @return
 	 */
-	public final static Rest getRest()
+	public static final Rest getRest()
 	{
 		return REST;
 	}

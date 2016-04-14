@@ -14,7 +14,6 @@ public class ExerciseSet implements Serializable
 {
 	
 	private static final long serialVersionUID = -3282963882168359755L;
-	
 	private int amount;
 	private Exercise exercise;
 	

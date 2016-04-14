@@ -12,26 +12,13 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class ProceduralGeneratedRandom
 {
-	
-	
-	/**
-	 * Atomic Long seed type
-	 */
+
 	private final AtomicLong seed;
-	
-	/**
-	 * Number Multiplier
-	 */
+
 	private static final long MULTIPLYER = 0x5DEECE66DL;
-	
-	/**
-	 * The add end long variable
-	 */
+
 	private static final long ADD_END = 0xBL;
-	
-	/**
-	 * Mask
-	 */
+
 	private static final long MASK = (2L << 48) - 1;
 	
 	/**

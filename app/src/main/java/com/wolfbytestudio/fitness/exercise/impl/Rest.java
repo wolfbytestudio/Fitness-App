@@ -18,41 +18,41 @@ public class Rest extends Exercise
 	/**
 	 * The name of the exercise
 	 */
-	private final static String NAME = "Rest";
+	private static final String NAME = "Rest";
 	
 	/**
 	 * The muscle groups the exercise works on
 	 */
-	private final static MuscleGroup[] MUSCLE_GROUP = {
+	private static final MuscleGroup[] MUSCLE_GROUP = {
 			
 	};
 	
 	/**
 	 * The equipment required to preform the exercise
 	 */
-	private final static Equipment[] EQUIPMENT = {
+	private static final Equipment[] EQUIPMENT = {
 			Equipment.NONE
 	};
 	
 	/**
 	 * The difficulty of the exercise
 	 */
-	private final static Difficulty DIFFICULTY = Difficulty.EASY;
+	private static final Difficulty DIFFICULTY = Difficulty.EASY;
 	
 	/**
 	 * The category of the exercise
 	 */
-	private final static Category CATEGORY = Category.STANDARD;
+	private static final Category CATEGORY = Category.STANDARD;
 	
 	/**
 	 * The points gained for 1 rep
 	 */
-	private final static int POINTS = 0;
+	private static final int POINTS = 0;
 	
 	/**
 	 * Is the exercise Timed?
 	 */
-	private final static boolean TIMED = true;
+	private static final boolean TIMED = true;
 	
 	/**
 	 * Pushup constructor

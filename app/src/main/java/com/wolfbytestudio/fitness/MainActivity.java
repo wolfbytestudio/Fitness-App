@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.wolfbytestudio.fitness.generator.GeneratedWorkout;
 import com.wolfbytestudio.fitness.generator.UUIDGenerator;
 import com.wolfbytestudio.fitness.ui.adaptor.WorkoutRoundAdapter;
+import com.wolfbytestudio.fitness.util.Utility;
 
 import org.w3c.dom.Text;
 
@@ -43,7 +44,7 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Constants.workout = GeneratedWorkout.generateWorkout("Zack");
+        Utility.workout = GeneratedWorkout.generateWorkout("Zack");
 
 
         lblName = (TextView) findViewById(R.id.lblWorkoutName);
@@ -102,7 +103,7 @@ public class MainActivity extends Activity
             }
         });
 
-        customListViewAdapter = new WorkoutRoundAdapter(getApplicationContext(), this, Constants.workout);
+        customListViewAdapter = new WorkoutRoundAdapter(getApplicationContext(), this, Utility.workout);
         lstRounds.setAdapter(customListViewAdapter);
     }
 
@@ -114,7 +115,7 @@ public class MainActivity extends Activity
             txtSeed.setText(seed);
         }
 
-        Constants.workout = GeneratedWorkout.generateWorkout(seed);
+        Utility.workout = GeneratedWorkout.generateWorkout(seed);
         customListViewAdapter.notifyDataSetChanged();
         updateDetails();
     }
@@ -127,11 +128,11 @@ public class MainActivity extends Activity
 
     public void updateDetails()
     {
-        lblName.setText("Name: " +Constants.workout.getWorkoutName());
-        lblDifficulty.setText("Difficulty: " + Constants.workout.getDifficulty().name());
-        lblType.setText("Experience: " + Constants.workout.getExperience());
-        lblRounds.setText("Rounds: " + Constants.workout.getRounds().size());
-        lblMuscles.setText("Muscles: " + Constants.workout.formatMuscleGroups(Constants.workout.getMuscleGroups()));
+        lblName.setText("Name: " +Utility.workout.getWorkoutName());
+        lblDifficulty.setText("Difficulty: " + Utility.workout.getDifficulty().name());
+        lblType.setText("Experience: " + Utility.workout.getExperience());
+        lblRounds.setText("Rounds: " + Utility.workout.getRounds().size());
+        lblMuscles.setText("Muscles: " + Utility.workout.formatMuscleGroups(Utility.workout.getMuscleGroups()));
     }
 
     @Override

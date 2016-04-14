@@ -14,8 +14,8 @@ import com.wolfbytestudio.fitness.workout.Workout;
 public class Cache
 {
 	
-	private final static Cache instance = new Cache();
-	public final static Cache getCache()
+	private static final Cache instance = new Cache();
+	public static final Cache getCache()
 	{
 		return instance;
 	}

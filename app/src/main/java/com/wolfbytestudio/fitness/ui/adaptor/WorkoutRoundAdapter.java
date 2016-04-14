@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.wolfbytestudio.fitness.Constants;
 import com.wolfbytestudio.fitness.MainActivity;
 import com.wolfbytestudio.fitness.R;
+import com.wolfbytestudio.fitness.util.Utility;
 import com.wolfbytestudio.fitness.workout.Workout;
 import com.wolfbytestudio.fitness.workout.WorkoutRound;
 
@@ -33,7 +33,7 @@ public class WorkoutRoundAdapter extends BaseAdapter
 
     @Override
     public int getCount() {
-        return Constants.workout.getRounds().size();
+        return Utility.workout.getRounds().size();
     }
 
     @Override
@@ -56,17 +56,17 @@ public class WorkoutRoundAdapter extends BaseAdapter
         }
 
 
-        WorkoutRound workoutRound = Constants.workout.getRound(position);
+        WorkoutRound workoutRound = Utility.workout.getRound(position);
 
         TextView lblRound = (TextView) view.findViewById(R.id.lblRound);
-        lblRound.setText("Round " + (position + 1) + " out of " + (Constants.workout.getRounds().size()));
+        lblRound.setText("Round " + (position + 1) + " out of " + (Utility.workout.getRounds().size()));
 
         final ListView lstExercise = (ListView) view.findViewById(R.id.lstWorkoutComponents);
 
         exerciseAdapter = new ExerciseAdapter(workoutRound, owner, inflater.getContext());
         lstExercise.setAdapter(exerciseAdapter);
 
-        Constants.setListViewHeightBasedOnChildren(lstExercise);
+        Utility.setListViewHeightBasedOnChildren(lstExercise);
 
         return view;
     }

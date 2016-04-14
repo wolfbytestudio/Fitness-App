@@ -18,41 +18,41 @@ public class TrianglePushUps extends Exercise
 	/**
 	 * The name of the exercise
 	 */
-	private final static String NAME = "Triangle Push Ups";
+	private static final String NAME = "Triangle Push Ups";
 	
 	/**
 	 * The muscle groups the exercise works on
 	 */
-	private final static MuscleGroup[] MUSCLE_GROUP = {
+	private static final MuscleGroup[] MUSCLE_GROUP = {
 			MuscleGroup.TRICEPS, MuscleGroup.CHEST
 	};
 	
 	/**
 	 * The equipment required to preform the exercise
 	 */
-	private final static Equipment[] EQUIPMENT = {
+	private static final Equipment[] EQUIPMENT = {
 			Equipment.NONE
 	};
 	
 	/**
 	 * The difficulty of the exercise
 	 */
-	private final static Difficulty DIFFICULTY = Difficulty.EASY;
+	private static final Difficulty DIFFICULTY = Difficulty.EASY;
 	
 	/**
 	 * The category of the exercise
 	 */
-	private final static Category CATEGORY = Category.STANDARD;
+	private static final Category CATEGORY = Category.STANDARD;
 	
 	/**
 	 * The points gained for 1 rep
 	 */
-	private final static int POINTS = 3;
+	private static final int POINTS = 3;
 	
 	/**
 	 * Is the exercise Timed?
 	 */
-	private final static boolean TIMED = false;
+	private static final boolean TIMED = false;
 	
 	/**
 	 * Pushup constructor

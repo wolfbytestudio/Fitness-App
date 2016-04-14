@@ -1,22 +1,17 @@
 package com.wolfbytestudio.fitness.ui.adaptor;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.wolfbytestudio.fitness.Constants;
 import com.wolfbytestudio.fitness.MainActivity;
 import com.wolfbytestudio.fitness.R;
-import com.wolfbytestudio.fitness.exercise.Exercise;
+import com.wolfbytestudio.fitness.util.Utility;
 import com.wolfbytestudio.fitness.workout.ExerciseSet;
 import com.wolfbytestudio.fitness.workout.WorkoutRound;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by Zack on 30/03/2016.
@@ -64,7 +59,7 @@ public class ExerciseAdapter extends BaseAdapter {
         TextView lblName = (TextView) view.findViewById(R.id.lblExerciseName);
         lblName.setText(exercise.getFormattedAmount() + " "+ exercise.getExercise().getName());
 
-        Constants.workout.print();
+        Utility.workout.print();
 
         return view;
     }
