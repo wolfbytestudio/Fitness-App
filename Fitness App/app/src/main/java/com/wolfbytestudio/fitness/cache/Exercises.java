@@ -37,21 +37,6 @@ public class Exercises
      */
     private static List<Exercise> exercises = new ArrayList<>();
 
-    private static final MuscleGroup[] BURPEES = {
-
-    };
-
-    private static final Equipment[] BURPEESEQ = {
-            Equipment.NONE
-    };
-
-    /**
-     * Static field to populate the {@link exercises} list
-     */
-    static
-    {
-        exercises.add(new Exercise("Rest", Arrays.asList(BURPEES), Arrays.asList(BURPEESEQ), Difficulty.EASY, Category.STANDARD, 0, false, 0.001F));
-    }
 
     /**
      * Returns the {@link exercises} list
