@@ -265,16 +265,16 @@ public class Workout implements Serializable, Cloneable
      * Gson object used for getting a workouts
      * json string and loading a workout with a json string
      */
-    private static Gson gson = new Gson();
+    private static final Gson GSON = new Gson();
 
     /**
      * Converts the workout to a json string
      *
      * @return
      */
-    public String getGson()
+    public String toGson()
     {
-        return gson.toJson(this);
+        return GSON.toJson(this);
     }
 
     /**
@@ -283,9 +283,9 @@ public class Workout implements Serializable, Cloneable
      * @param json - the json string we are passing in
      * @return
      */
-    public static Workout load(String json)
+    public static Workout fromJson(String json)
     {
-        return gson.fromJson(json, Workout.class);
+        return GSON.fromJson(json, Workout.class);
     }
 
 }

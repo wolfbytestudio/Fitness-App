@@ -48,7 +48,7 @@ public class Exercises
      * @param name - the name of the exercise to get
      * @return - the exercise object
      */
-    public static Exercise getExerciseByName(String name)
+    public static Exercise getByName(String name)
     {
         for (Exercise c : exercises)
         {
@@ -63,7 +63,7 @@ public class Exercises
      *
      * @return - the amount of elements in the {@link exercises} list
      */
-    public static final int exerciseListCount()
+    public static final int listCount()
     {
         return exercises.size();
     }
@@ -74,7 +74,7 @@ public class Exercises
      * @param name - the exercise we are trying to find
      * @return - the exercise
      */
-    public static Exercise getExercise(String name)
+    public static Exercise get(String name)
     {
         for (Exercise ex : exercises)
         {
@@ -89,7 +89,7 @@ public class Exercises
      *
      * @param main - the main activity object
      */
-    public static void loadExercises(MainActivity main)
+    public static void load(MainActivity main)
     {
         InputStream ins = main.getResources().openRawResource(R.raw.exercises);
         String json = readTextFile(ins);
@@ -140,7 +140,7 @@ public class Exercises
      */
     public Exercise getRandom()
     {
-        return exercises.get(Utility.getRandomIndex(exerciseListCount()));
+        return exercises.get(Utility.getRandomIndex(listCount()));
     }
 
     /**
@@ -152,7 +152,7 @@ public class Exercises
      */
     public Exercise getRandom(ProceduralGeneratedRandom rnd)
     {
-        return exercises.get(rnd.getRandomInt(exerciseListCount()));
+        return exercises.get(rnd.getRandomInt(listCount()));
     }
 
     /**
