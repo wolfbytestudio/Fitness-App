@@ -20,7 +20,7 @@ public class GeneratedWorkout
 {
 
     /**
-     * The seed of the seed
+     * The seed used for procedural generation
      */
     private static String seed;
 
