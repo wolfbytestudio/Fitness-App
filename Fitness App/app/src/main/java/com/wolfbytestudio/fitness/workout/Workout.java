@@ -23,67 +23,40 @@ import java.util.List;
  */
 public class Workout implements Serializable, Cloneable
 {
+
     private static final long serialVersionUID = 4583807712164476492L;
-    /**
-     * Gson object used for getting a workouts
-     * gson string and loading a workout with a gson string
-     */
-    private static final Gson GSON = new Gson();
+
     /**
      * All the workout rounds that the workout contains
      */
     private List<WorkoutRound> rounds = new ArrayList<>();
+
     /**
      * The workout name
      */
     private String workoutName;
+
     /**
      * The workout type
      */
     private WorkoutType type;
+
     /**
      * The difficulty of the workout
      */
     private Difficulty difficulty;
+
     /**
      * The amount of times you have complete the workout
      */
     private int timesComplete;
+
     /**
      * The fastest time you took to complete the workout
      */
-    private Date bestTime;
+    private long bestTime;
 
-    /**
-     * Loads a workout by json string
-     *
-     * @param json
-     * @return
-     */
-    public static Workout loadGsonWorkout(String json)
-    {
-
-        return GSON.fromJson(json, Workout.class);
-    }
-
-    /**
-     * Writes an objects content to the object output stream
-     *
-     * @param stream - the ObjectOutputStream
-     * @throws IOException
-     */
-    public void writeObject(ObjectOutputStream stream) throws IOException
-    {
-        stream.writeObject(rounds);
-        stream.writeObject(workoutName);
-        stream.writeObject(type);
-        stream.writeObject(difficulty);
-    }
-
-    public List<WorkoutRound> getRounds()
-    {
-        return rounds;
-    }
+    public List<WorkoutRound> getRounds()  { return rounds; }
 
     public void setRounds(List<WorkoutRound> rounds)
     {
@@ -100,10 +73,7 @@ public class Workout implements Serializable, Cloneable
         this.difficulty = difficulty;
     }
 
-    public String getWorkoutName()
-    {
-        return workoutName;
-    }
+    public String getWorkoutName() { return workoutName; }
 
     public void setWorkoutName(String workoutName)
     {
@@ -120,12 +90,12 @@ public class Workout implements Serializable, Cloneable
         this.type = type;
     }
 
-    public Date getBestTime()
+    public long getBestTime()
     {
         return bestTime;
     }
 
-    public void setBestTime(Date time)
+    public void setBestTime(long time)
     {
         this.bestTime = time;
     }
@@ -146,7 +116,7 @@ public class Workout implements Serializable, Cloneable
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException
+    public Workout clone() throws CloneNotSupportedException
     {
         return (Workout) super.clone();
     }
@@ -281,7 +251,7 @@ public class Workout implements Serializable, Cloneable
         Log.d("zz1", "Times Complete: " + timesComplete);
         Log.d("zz1", "Muscle Groups: " + formatMuscleGroups(getMuscleGroups()));
 
-        if (bestTime != null)
+        if (bestTime != 0)
             Log.d("zz1", "Best Time: " + Utility.getFormattedDate(bestTime));
 
         for (int i = 0; i < rounds.size(); i++)
@@ -292,13 +262,30 @@ public class Workout implements Serializable, Cloneable
     }
 
     /**
-     * Converts the workout to a gson string
+     * Gson object used for getting a workouts
+     * json string and loading a workout with a json string
+     */
+    private static Gson gson = new Gson();
+
+    /**
+     * Converts the workout to a json string
      *
      * @return
      */
     public String getGson()
     {
-        return GSON.toJson(this);
+        return gson.toJson(this);
+    }
+
+    /**
+     * Loads a workout by json string
+     *
+     * @param json - the json string we are passing in
+     * @return
+     */
+    public static Workout load(String json)
+    {
+        return gson.fromJson(json, Workout.class);
     }
 
 }

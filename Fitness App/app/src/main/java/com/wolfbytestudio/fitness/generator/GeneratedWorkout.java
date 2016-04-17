@@ -69,7 +69,7 @@ public class GeneratedWorkout
         WorkoutRound round = generateWorkoutRound(dif, rnd, list);
 
 
-        round.addSet(new ExerciseRep(dif.getMultiplier() * 10, Exercises.getExercise("Rest").getName()));
+        round.addSet(new ExerciseRep(dif.getMultiplier() * 10, Exercises.get("Rest").getName()));
 
         for (int i = 0; i < rounds; i++)
         {

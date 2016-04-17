@@ -42,7 +42,7 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
 
 
-        Exercises.loadExercises(this);
+        Exercises.load(this);
 
         Utility.workout = GeneratedWorkout.generateWorkout("Zack");
 

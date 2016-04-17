@@ -85,10 +85,10 @@ public class Utility
      * @param date - the date to format
      * @return - String formatted time
      */
-    public static String getFormattedDate(Date date)
+    public static String getFormattedDate(long date)
     {
-        String outPut;
-        outPut = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        String outPut = "";
+        //TODO
         return outPut;
     }
 

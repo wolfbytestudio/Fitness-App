@@ -42,7 +42,7 @@ public class ExerciseRep implements Serializable
      */
     public Exercise getExercise()
     {
-        return Exercises.getExercise(exercise);
+        return Exercises.get(exercise);
     }
 
     /**
