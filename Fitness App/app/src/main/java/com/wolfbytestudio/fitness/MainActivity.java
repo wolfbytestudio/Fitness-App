@@ -46,13 +46,13 @@ public class MainActivity extends Activity
 
         Utility.workout = GeneratedWorkout.generateWorkout("Zack");
 
-        String gson = Utility.workout.getGson();
+        String gson = Utility.workout.toJson();
 
-        Workout newWorkout = Workout.loadGsonWorkout(gson);
+        Workout newWorkout = Workout.fromJson(gson);
 
         newWorkout.setWorkoutName("fucking poopy");
 
-        Log.d("abcd", newWorkout.getGson());
+        Log.d("abcd", newWorkout.toJson());
 
 
         lblName = (TextView) findViewById(R.id.lblWorkoutName);

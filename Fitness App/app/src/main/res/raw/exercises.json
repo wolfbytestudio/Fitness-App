@@ -119,7 +119,7 @@
       "TOP_ABS"
     ],
     "name": "Leg Raises",
-    "points": 2
+    "points": 1
   },
   {
     "caloriesBurned": 0.203,
@@ -159,7 +159,7 @@
       "QUADRICEPS"
     ],
     "name": "One Legged Squats",
-    "points": 5
+    "points": 3
   },
   {
     "caloriesBurned": 0.085,
@@ -240,6 +240,6 @@
       "CHEST"
     ],
     "name": "Triangle Push-Ups",
-    "points": 3
+    "points": 2
   }
 ]

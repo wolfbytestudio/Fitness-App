@@ -69,7 +69,7 @@ public class GeneratedWorkout
         WorkoutRound round = generateWorkoutRound(dif, rnd, list);
 
 
-        round.addSet(new ExerciseRep(dif.getMultiplier() * 10, Exercises.get("Rest").getName()));
+        round.addSet(new ExerciseRep(dif.getMultiplier() * 10, Exercises.get("rest").getName()));
 
         for (int i = 0; i < rounds; i++)
         {
@@ -95,6 +95,7 @@ public class GeneratedWorkout
 
         for (Exercise exersice : list)
         {
+
             round.addSet(new ExerciseRep(generateAmount(exersice, dif, rnd), exersice.getName()));
         }
 
@@ -142,7 +143,7 @@ public class GeneratedWorkout
         {
             Exercise current = Cache.getCache().getExercises().getRandom(rnd);
 
-            while (ls.contains(current))
+            while (ls.contains(current) && !current.getName().equalsIgnoreCase("rest"))
             {
                 current = Cache.getCache().getExercises().getRandom(rnd);
             }

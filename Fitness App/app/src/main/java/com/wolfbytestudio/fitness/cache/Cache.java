@@ -1,5 +1,6 @@
 package com.wolfbytestudio.fitness.cache;
 
+import com.wolfbytestudio.fitness.exercise.Exercise;
 import com.wolfbytestudio.fitness.workout.Workout;
 
 import java.io.FileInputStream;
@@ -26,6 +27,8 @@ public class Cache
     {
         return EXERCISES;
     }
+
+
 
     public List<Workout> getWorkouts()
     {

@@ -6,6 +6,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.wolfbytestudio.fitness.MainActivity;
 import com.wolfbytestudio.fitness.R;
+import com.wolfbytestudio.fitness.exercise.Category;
+import com.wolfbytestudio.fitness.exercise.Difficulty;
 import com.wolfbytestudio.fitness.exercise.Equipment;
 import com.wolfbytestudio.fitness.exercise.Exercise;
 import com.wolfbytestudio.fitness.exercise.MuscleGroup;
@@ -32,6 +34,15 @@ public class Exercises
      */
     private static List<Exercise> exercises = new ArrayList<>();
 
+
+
+    private static final Exercise REST = new Exercise("Rest", null, null, Difficulty.EASY, Category.STANDARD, 0, true, 0.01F);
+
+
+    public static final Exercise getRest()
+    {
+        return REST;
+    }
     /**
      * Returns the {@link exercises} list
      *

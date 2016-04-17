@@ -272,7 +272,7 @@ public class Workout implements Serializable, Cloneable
      *
      * @return
      */
-    public String toGson()
+    public String toJson()
     {
         return GSON.toJson(this);
     }
