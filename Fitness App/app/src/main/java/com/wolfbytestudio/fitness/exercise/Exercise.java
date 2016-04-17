@@ -10,7 +10,7 @@ import java.util.List;
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  */
-public abstract class Exercise implements Serializable
+public class Exercise implements Serializable
 {
     /**
      * UID to stop the compiler complaining.
@@ -20,44 +20,47 @@ public abstract class Exercise implements Serializable
     /**
      * The exercise name
      */
-    protected String name;
+    private String name;
 
     /**
      * The image id
      * Will be used for android development
      */
-    protected int imageId;
+    private int imageId;
 
     /**
      * A list of all muscles used in the Exercise
      */
-    protected List<MuscleGroup> muscles;
+    private List<MuscleGroup> muscles;
 
     /**
      * A list of possible equipment you may need
      */
-    protected List<Equipment> equipment;
+    private List<Equipment> equipment;
 
     /**
      * The Exercise Difficulty
      */
-    protected Difficulty difficulty;
+    private Difficulty difficulty;
 
     /**
      * The category of the exercise
      */
-    protected Category category;
+    private Category category;
 
     /**
      * The points to gain per rep
      */
-    protected int points;
+    private int points;
 
     /**
      * Check the the exercise is timed or not
      */
-    protected boolean isTimed;
+    private boolean isTimed;
 
+    /**
+     * How much calories are burned
+     */
     private float caloriesBurned;
 
     /**
@@ -161,9 +164,6 @@ public abstract class Exercise implements Serializable
     {
         return imageId;
     }
-
-
-    protected abstract void setImageId(int id);
 
     /**
      * How much calories is burned per exercise

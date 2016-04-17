@@ -2,6 +2,7 @@ package com.wolfbytestudio.fitness.workout;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.wolfbytestudio.fitness.exercise.Difficulty;
 import com.wolfbytestudio.fitness.exercise.Equipment;
 import com.wolfbytestudio.fitness.exercise.MuscleGroup;
@@ -166,7 +167,7 @@ public class Workout implements Serializable, Cloneable
 
         for (WorkoutRound round : rounds)
         {
-            for (ExerciseSet set : round.getSets())
+            for (ExerciseRep set : round.getSets())
             {
                 for (MuscleGroup muscle : set.getExercise().getMuscles())
                 {
@@ -210,7 +211,7 @@ public class Workout implements Serializable, Cloneable
         int counter = 0;
         for (WorkoutRound round : rounds)
         {
-            for (ExerciseSet set : round.getSets())
+            for (ExerciseRep set : round.getSets())
             {
                 counter += (set.getExercise().getCaloriesBurned() * set.getAmount());
             }
@@ -248,7 +249,7 @@ public class Workout implements Serializable, Cloneable
         int counter = 0;
         for (WorkoutRound round : rounds)
         {
-            for (ExerciseSet set : round.getSets())
+            for (ExerciseRep set : round.getSets())
             {
                 counter += (set.getExercise().getPoints() * set.getAmount());
             }
@@ -277,6 +278,32 @@ public class Workout implements Serializable, Cloneable
             Log.d("zz1", "Round: " + (i + 1));
             Log.d("zz1", rounds.get(i).toString());
         }
+    }
+
+    /**
+     * Gson object used for getting a workouts
+     * gson string and loading a workout with a gson string
+     */
+    private static final Gson GSON = new Gson();
+
+    /**
+     * Loads a workout by json string
+     * @param json
+     * @return
+     */
+    public static Workout loadGsonWorkout(String json)
+    {
+
+        return GSON.fromJson(json, Workout.class);
+    }
+
+    /**
+     * Converts the workout to a gson string
+     * @return
+     */
+    public String getGson()
+    {
+        return GSON.toJson(this);
     }
 
 }

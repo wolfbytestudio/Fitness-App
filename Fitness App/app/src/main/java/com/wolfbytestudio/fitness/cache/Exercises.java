@@ -1,26 +1,31 @@
 package com.wolfbytestudio.fitness.cache;
 
+import android.content.Context;
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.wolfbytestudio.fitness.MainActivity;
+import com.wolfbytestudio.fitness.R;
+import com.wolfbytestudio.fitness.exercise.Category;
+import com.wolfbytestudio.fitness.exercise.Difficulty;
 import com.wolfbytestudio.fitness.exercise.Equipment;
 import com.wolfbytestudio.fitness.exercise.Exercise;
 import com.wolfbytestudio.fitness.exercise.MuscleGroup;
-import com.wolfbytestudio.fitness.exercise.impl.Burpees;
-import com.wolfbytestudio.fitness.exercise.impl.Climbers;
-import com.wolfbytestudio.fitness.exercise.impl.CrossCrunches;
-import com.wolfbytestudio.fitness.exercise.impl.Crunches;
-import com.wolfbytestudio.fitness.exercise.impl.HeelTouches;
-import com.wolfbytestudio.fitness.exercise.impl.HighJumps;
-import com.wolfbytestudio.fitness.exercise.impl.LegRaises;
-import com.wolfbytestudio.fitness.exercise.impl.Lunges;
-import com.wolfbytestudio.fitness.exercise.impl.OneLeggedSquats;
-import com.wolfbytestudio.fitness.exercise.impl.PushUps;
-import com.wolfbytestudio.fitness.exercise.impl.Rest;
-import com.wolfbytestudio.fitness.exercise.impl.SitUps;
-import com.wolfbytestudio.fitness.exercise.impl.Squats;
-import com.wolfbytestudio.fitness.exercise.impl.TrianglePushUps;
 import com.wolfbytestudio.fitness.util.ProceduralGeneratedRandom;
 import com.wolfbytestudio.fitness.util.Utility;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -30,51 +35,32 @@ public class Exercises
     /**
      * A List of all Exercises
      */
-    private static final List<Exercise> EXERCISES = new ArrayList<>();
+    private static List<Exercise> exercises = new ArrayList<>();
+
+    private static final MuscleGroup[] BURPEES = {
+
+    };
+
+    private static final Equipment[] BURPEESEQ = {
+            Equipment.NONE
+    };
 
     /**
-     * The rest exercise
-     */
-    private static final Rest REST = new Rest();
-
-    /**
-     * Static field to populate the {@link EXERCISES} list
+     * Static field to populate the {@link exercises} list
      */
     static
     {
-        EXERCISES.add(new Burpees());
-        EXERCISES.add(new CrossCrunches());
-        EXERCISES.add(new Crunches());
-        EXERCISES.add(new HeelTouches());
-        EXERCISES.add(new Squats());
-        EXERCISES.add(new TrianglePushUps());
-        EXERCISES.add(new LegRaises());
-        EXERCISES.add(new OneLeggedSquats());
-        EXERCISES.add(new PushUps());
-        EXERCISES.add(new SitUps());
-        EXERCISES.add(new Lunges());
-        EXERCISES.add(new Climbers());
-        EXERCISES.add(new HighJumps());
+        exercises.add(new Exercise("Rest", Arrays.asList(BURPEES), Arrays.asList(BURPEESEQ), Difficulty.EASY, Category.STANDARD, 0, false, 0.001F));
     }
 
     /**
-     * Gets the rest exercise
+     * Returns the {@link exercises} list
      *
-     * @return
-     */
-    public static final Rest getRest()
-    {
-        return REST;
-    }
-
-    /**
-     * Returns the {@link EXERCISES} list
-     *
-     * @return - the {@link EXERCISES} list
+     * @return - the {@link exercises} list
      */
     public static final List<Exercise> getList()
     {
-        return EXERCISES;
+        return exercises;
     }
 
 
@@ -86,7 +72,7 @@ public class Exercises
      */
     public static Exercise getExerciseByName(String name)
     {
-        for (Exercise c : EXERCISES)
+        for (Exercise c : exercises)
         {
             if (c.getName().equalsIgnoreCase(name))
                 return c;
@@ -95,23 +81,38 @@ public class Exercises
     }
 
     /**
-     * The amount of elements in the {@link EXERCISES} list
+     * The amount of elements in the {@link exercises} list
      *
-     * @return - the amount of elements in the {@link EXERCISES} list
+     * @return - the amount of elements in the {@link exercises} list
      */
     public static final int exerciseListCount()
     {
-        return EXERCISES.size();
+        return exercises.size();
     }
 
     /**
-     * Get a random Exercise from the {@link EXERCISES} list
+     * Gets an exercise by it's name
+     * @param name - the exercise we are trying to find
+     * @return - the exercise
+     */
+    public static Exercise getExercise(String name)
+    {
+        for(Exercise ex : exercises)
+        {
+            if(ex.getName().equalsIgnoreCase(name))
+                return ex;
+        }
+        return null;
+    }
+
+    /**
+     * Get a random Exercise from the {@link exercises} list
      *
-     * @return - a random {@link EXERCISES}
+     * @return - a random {@link exercises}
      */
     public Exercise getRandom()
     {
-        return EXERCISES.get(Utility.getRandomIndex(exerciseListCount()));
+        return exercises.get(Utility.getRandomIndex(exerciseListCount()));
     }
 
     /**
@@ -123,11 +124,11 @@ public class Exercises
      */
     public Exercise getRandom(ProceduralGeneratedRandom rnd)
     {
-        return EXERCISES.get(rnd.getRandomInt(exerciseListCount()));
+        return exercises.get(rnd.getRandomInt(exerciseListCount()));
     }
 
     /**
-     * Gets a random Exercise from the {@link EXERCISES} list
+     * Gets a random Exercise from the {@link exercises} list
      * for a specific muscle group
      *
      * @param muscleGroup - the muscle group
@@ -164,14 +165,62 @@ public class Exercises
     }
 
     /**
-     * Gets an exercise from the {@link EXERCISES} list  by index
+     * Gson object used for loading all exercises in the list
+     */
+    public static final Gson GSON = new Gson();
+
+    /**
+     * Loads all exercises from a file
+     * @param main - the main activity object
+     */
+    public static void loadExercises(MainActivity main)
+    {
+        InputStream ins = main.getResources().openRawResource(R.raw.exercises);
+        String json = readTextFile(ins);
+
+        Type listType = new TypeToken<ArrayList<Exercise>>() { }.getType();
+
+        exercises = GSON.fromJson(json, listType);
+
+        for (Exercise ex: exercises)
+        {
+            Log.d("abc", ex.getName());
+        }
+    }
+
+    /**
+     * Reads all text from a file
+     * @param inputStream - the input stream
+     * @return - the files string
+     */
+    private static String readTextFile(InputStream inputStream)
+    {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        byte buf[] = new byte[1024];
+        int len;
+        try {
+            while ((len = inputStream.read(buf)) != -1) {
+                outputStream.write(buf, 0, len);
+            }
+            outputStream.close();
+            inputStream.close();
+        } catch (IOException e) {
+
+        }
+        return outputStream.toString();
+    }
+
+
+    /**
+     * Gets an exercise from the {@link exercises} list  by index
      *
      * @param index - the index
      * @return - the exercise
      */
     public Exercise getIndex(int index)
     {
-        return EXERCISES.get(index);
+        return exercises.get(index);
     }
 
 

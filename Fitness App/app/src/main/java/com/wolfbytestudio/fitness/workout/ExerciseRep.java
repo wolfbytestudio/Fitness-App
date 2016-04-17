@@ -1,5 +1,6 @@
 package com.wolfbytestudio.fitness.workout;
 
+import com.wolfbytestudio.fitness.cache.Exercises;
 import com.wolfbytestudio.fitness.exercise.Exercise;
 
 import java.io.Serializable;
@@ -8,25 +9,45 @@ import java.io.Serializable;
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  */
-public class ExerciseSet implements Serializable
+public class ExerciseRep implements Serializable
 {
-
     private static final long serialVersionUID = -3282963882168359755L;
-    private int amount;
-    private Exercise exercise;
 
-    public ExerciseSet(int amount, Exercise exercise)
+    /**
+     * The amount of reps to do
+     */
+    private int amount;
+
+    /**
+     * The exercise you have to do
+     */
+    private String exercise;
+
+    /**
+     * Constructor
+     * @param amount
+     * @param exercise
+     */
+    public ExerciseRep(int amount, String exercise)
     {
         this.amount = amount;
         this.exercise = exercise;
     }
 
+    /**
+     * Gets the exercise
+     * @return - the Exercise object
+     */
     public Exercise getExercise()
     {
-        return exercise;
+        return Exercises.getExercise(exercise);
     }
 
-    public void setExercise(Exercise exercise)
+    /**
+     * Set's the
+     * @param exercise
+     */
+    public void setExercise(String exercise)
     {
         this.exercise = exercise;
     }
@@ -46,7 +67,7 @@ public class ExerciseSet implements Serializable
     {
         String out = "";
 
-        if (exercise.isTimed())
+        if (getExercise().isTimed())
             out = amount + " Seconds ";
         else
             out = "" + amount;

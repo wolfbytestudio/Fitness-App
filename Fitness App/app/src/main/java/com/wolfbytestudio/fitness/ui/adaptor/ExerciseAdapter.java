@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.wolfbytestudio.fitness.MainActivity;
 import com.wolfbytestudio.fitness.R;
 import com.wolfbytestudio.fitness.util.Utility;
-import com.wolfbytestudio.fitness.workout.ExerciseSet;
+import com.wolfbytestudio.fitness.workout.ExerciseRep;
 import com.wolfbytestudio.fitness.workout.WorkoutRound;
 
 /**
@@ -59,7 +59,7 @@ public class ExerciseAdapter extends BaseAdapter
             view = inflater.inflate(R.layout.exercise, null);
         }
 
-        ExerciseSet exercise = round.getSet(position);
+        ExerciseRep exercise = round.getSet(position);
 
         TextView lblName = (TextView) view.findViewById(R.id.lblExerciseName);
         lblName.setText(exercise.getFormattedAmount() + " " + exercise.getExercise().getName());

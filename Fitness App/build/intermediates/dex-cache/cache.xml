@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Zack\Documents\GitHub\Fitness-App\Fitness App\app\libs\gson-2.6.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
+        <dex dex="C:\Users\Zack\Documents\GitHub\Fitness-App\Fitness App\app\build\intermediates\pre-dexed\debug\gson-2.6.2-ad3d879225752ed4e5ef79a319c0e8f26c3f468d.jar" />
+    </item>
+
+</items>

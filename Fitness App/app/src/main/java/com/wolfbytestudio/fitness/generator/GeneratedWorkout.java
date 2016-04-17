@@ -5,7 +5,7 @@ import com.wolfbytestudio.fitness.cache.Exercises;
 import com.wolfbytestudio.fitness.exercise.Difficulty;
 import com.wolfbytestudio.fitness.exercise.Exercise;
 import com.wolfbytestudio.fitness.util.ProceduralGeneratedRandom;
-import com.wolfbytestudio.fitness.workout.ExerciseSet;
+import com.wolfbytestudio.fitness.workout.ExerciseRep;
 import com.wolfbytestudio.fitness.workout.Workout;
 import com.wolfbytestudio.fitness.workout.WorkoutRound;
 import com.wolfbytestudio.fitness.workout.WorkoutType;
@@ -69,7 +69,7 @@ public class GeneratedWorkout
         WorkoutRound round = generateWorkoutRound(dif, rnd, list);
 
 
-        round.addSet(new ExerciseSet(dif.getMultiplier() * 10, Exercises.getRest()));
+        round.addSet(new ExerciseRep(dif.getMultiplier() * 10, Exercises.getExercise("Rest").getName()));
 
         for (int i = 0; i < rounds; i++)
         {
@@ -95,7 +95,7 @@ public class GeneratedWorkout
 
         for (Exercise exersice : list)
         {
-            round.addSet(new ExerciseSet(generateAmount(exersice, dif, rnd), exersice));
+            round.addSet(new ExerciseRep(generateAmount(exersice, dif, rnd), exersice.getName()));
         }
 
         return round;

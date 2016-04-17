@@ -13,9 +13,9 @@ public class WorkoutRound implements Serializable
 {
 
     private static final long serialVersionUID = -7831129396127358218L;
-    private List<ExerciseSet> sets = new ArrayList<>();
+    private List<ExerciseRep> sets = new ArrayList<>();
 
-    public WorkoutRound(ExerciseSet[] sets)
+    public WorkoutRound(ExerciseRep[] sets)
     {
         this.sets = Arrays.asList(sets);
     }
@@ -24,22 +24,22 @@ public class WorkoutRound implements Serializable
     {
     }
 
-    public WorkoutRound(List<ExerciseSet> sets)
+    public WorkoutRound(List<ExerciseRep> sets)
     {
         this.sets = sets;
     }
 
-    public List<ExerciseSet> getSets()
+    public List<ExerciseRep> getSets()
     {
         return sets;
     }
 
-    public void addSet(ExerciseSet set)
+    public void addSet(ExerciseRep set)
     {
         sets.add(set);
     }
 
-    public void removeSet(ExerciseSet set)
+    public void removeSet(ExerciseRep set)
     {
         sets.remove(set);
     }
@@ -54,7 +54,7 @@ public class WorkoutRound implements Serializable
         sets.remove(index);
     }
 
-    public ExerciseSet getSet(int index)
+    public ExerciseRep getSet(int index)
     {
         return sets.get(index);
     }
@@ -63,7 +63,7 @@ public class WorkoutRound implements Serializable
     public String toString()
     {
         String strOut = "";
-        for (ExerciseSet set : sets)
+        for (ExerciseRep set : sets)
         {
             String type = set.getExercise().isTimed() == false ? "Reps" : "Seconds";
             strOut += "Exercise: " + set.getExercise().getName() + ", " + type + ": " + set.getAmount() + "\n";
