@@ -1,7 +1,6 @@
 package com.wolfbytestudio.fitness;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,21 +12,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.wolfbytestudio.fitness.cache.Exercises;
-import com.wolfbytestudio.fitness.exercise.Exercise;
 import com.wolfbytestudio.fitness.generator.GeneratedWorkout;
 import com.wolfbytestudio.fitness.ui.adaptor.WorkoutRoundAdapter;
 import com.wolfbytestudio.fitness.util.Utility;
 import com.wolfbytestudio.fitness.workout.Workout;
-
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class MainActivity extends Activity
 {
@@ -45,7 +33,6 @@ public class MainActivity extends Activity
     private TextView lblMuscles;
     private Button btnGenerate;
     private EditText txtSeed;
-
 
 
     @Override
@@ -133,9 +120,6 @@ public class MainActivity extends Activity
         customListViewAdapter = new WorkoutRoundAdapter(getApplicationContext(), this, Utility.workout);
         lstRounds.setAdapter(customListViewAdapter);
     }
-
-
-
 
 
     private void setSeed(String seed)

@@ -25,6 +25,7 @@ public class ExerciseRep implements Serializable
 
     /**
      * Constructor
+     *
      * @param amount
      * @param exercise
      */
@@ -36,6 +37,7 @@ public class ExerciseRep implements Serializable
 
     /**
      * Gets the exercise
+     *
      * @return - the Exercise object
      */
     public Exercise getExercise()
@@ -45,6 +47,7 @@ public class ExerciseRep implements Serializable
 
     /**
      * Set's the
+     *
      * @param exercise
      */
     public void setExercise(String exercise)

@@ -24,36 +24,47 @@ import java.util.List;
 public class Workout implements Serializable, Cloneable
 {
     private static final long serialVersionUID = 4583807712164476492L;
-
+    /**
+     * Gson object used for getting a workouts
+     * gson string and loading a workout with a gson string
+     */
+    private static final Gson GSON = new Gson();
     /**
      * All the workout rounds that the workout contains
      */
     private List<WorkoutRound> rounds = new ArrayList<>();
-
     /**
      * The workout name
      */
     private String workoutName;
-
     /**
      * The workout type
      */
     private WorkoutType type;
-
     /**
      * The difficulty of the workout
      */
     private Difficulty difficulty;
-
     /**
      * The amount of times you have complete the workout
      */
     private int timesComplete;
-
     /**
      * The fastest time you took to complete the workout
      */
     private Date bestTime;
+
+    /**
+     * Loads a workout by json string
+     *
+     * @param json
+     * @return
+     */
+    public static Workout loadGsonWorkout(String json)
+    {
+
+        return GSON.fromJson(json, Workout.class);
+    }
 
     /**
      * Writes an objects content to the object output stream
@@ -68,7 +79,6 @@ public class Workout implements Serializable, Cloneable
         stream.writeObject(type);
         stream.writeObject(difficulty);
     }
-
 
     public List<WorkoutRound> getRounds()
     {
@@ -204,6 +214,7 @@ public class Workout implements Serializable, Cloneable
 
     /**
      * Gets the amount of calories the workout burns
+     *
      * @return - the amount of calories the workout burns
      */
     public int getCalories()
@@ -281,24 +292,8 @@ public class Workout implements Serializable, Cloneable
     }
 
     /**
-     * Gson object used for getting a workouts
-     * gson string and loading a workout with a gson string
-     */
-    private static final Gson GSON = new Gson();
-
-    /**
-     * Loads a workout by json string
-     * @param json
-     * @return
-     */
-    public static Workout loadGsonWorkout(String json)
-    {
-
-        return GSON.fromJson(json, Workout.class);
-    }
-
-    /**
      * Converts the workout to a gson string
+     *
      * @return
      */
     public String getGson()

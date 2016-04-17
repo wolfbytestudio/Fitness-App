@@ -21,11 +21,6 @@ public class Utility
 {
 
     /**
-     * Private Utility class
-     */
-    private Utility(){}
-
-    /**
      * Random object
      */
     private static final Random RND = new Random();
@@ -38,6 +33,12 @@ public class Utility
      * The current workout object, place holder
      */
     public static Workout workout = null;
+    /**
+     * Private Utility class
+     */
+    private Utility()
+    {
+    }
 
     /**
      * Gets a random index with a maximum

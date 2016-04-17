@@ -32,13 +32,14 @@ public enum Difficulty
 
     /**
      * Difficulty Multiplier
-     *
+     * <p/>
      * Used for generating the amount of exercises and rounds
      */
     private final int multiplier;
 
     /**
      * Enum Constructor
+     *
      * @param multiplier - the difficulty multiplier
      */
     Difficulty(final int multiplier)
@@ -48,6 +49,7 @@ public enum Difficulty
 
     /**
      * The amount of difficulties there is
+     *
      * @return
      */
     public static int count()

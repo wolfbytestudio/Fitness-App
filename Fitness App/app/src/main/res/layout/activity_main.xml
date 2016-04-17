@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-    android:theme="@style/FitnessTheme"
-    tools:context=".MainActivity">
+                android:theme="@style/FitnessTheme"
+                tools:context=".MainActivity">
 
 
     <EditText
@@ -21,7 +21,7 @@
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:singleLine="true"
-        android:textColor="#F0F1F4" />
+        android:textColor="#F0F1F4"/>
 
     <Button
         android:id="@+id/btnGenerate"
@@ -32,7 +32,7 @@
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/txtSeed"
         android:text="Generate"
-        android:textColor="#F0F1F4" />
+        android:textColor="#F0F1F4"/>
 
     <RelativeLayout
         android:id="@+id/workoutDetails"
@@ -56,15 +56,15 @@
                 android:paddingLeft="5dp"
                 android:text="Name: Zack"
 
-                android:textSize="16dp" />
+                android:textSize="16dp"/>
 
             <ImageView
+                android:id="@+id/imgExperience"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/experience"
                 android:layout_below="@id/lblWorkoutName"
-                android:id="@+id/imgExperience"
                 android:layout_marginLeft="7dp"
+                android:background="@drawable/experience"
                 />
 
             <TextView
@@ -72,11 +72,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="25dp"
                 android:layout_below="@id/lblWorkoutName"
+                android:layout_marginTop="1dp"
+                android:layout_toRightOf="@id/imgExperience"
                 android:paddingLeft="5dp"
                 android:text="0,000"
-                android:layout_toRightOf="@id/imgExperience"
-                android:layout_marginTop="1dp"
-                android:textSize="16dp" />
+                android:textSize="16dp"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -91,16 +91,16 @@
                 android:layout_height="25dp"
                 android:paddingLeft="5dp"
                 android:text="Difficulty: Insane"
-                android:textSize="16dp" />
+                android:textSize="16dp"/>
 
 
             <ImageView
+                android:id="@+id/imgCalories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/calories"
                 android:layout_below="@id/lblDifficulty"
-                android:id="@+id/imgCalories"
-                android:layout_marginLeft="7dp"/>
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/calories"/>
 
             <TextView
                 android:id="@+id/lblRounds"
@@ -111,8 +111,7 @@
                 android:layout_toRightOf="@id/imgCalories"
                 android:paddingLeft="5dp"
                 android:text="0,000"
-                android:textSize="16dp" />
-
+                android:textSize="16dp"/>
 
 
         </RelativeLayout>
@@ -122,11 +121,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rightInformation"
+            android:layout_marginTop="8dp"
             android:paddingLeft="5dp"
             android:paddingTop="2dp"
-            android:layout_marginTop="8dp"
             android:text="Muscle Groups: Lower back, Hamstrings, Glutes, Quadriceps, Top abs, Obliques, Bottom abs"
-            android:textSize="16dp" />
+            android:textSize="16dp"/>
     </RelativeLayout>
 
 
@@ -135,7 +134,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/workoutDetails" />
+        android:layout_below="@+id/workoutDetails"/>
 
 
 </RelativeLayout>

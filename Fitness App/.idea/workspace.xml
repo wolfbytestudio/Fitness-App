@@ -38,12 +38,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Exercises.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Exercises.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/cache/Exercises.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8200371">
-              <caret line="163" column="40" selection-start-line="163" selection-start-column="40" selection-end-line="163" selection-end-column="40" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Workout.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/workout/Workout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.77922076">
+              <caret line="292" column="0" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
+              <folding>
+                <element signature="e#3167#3168#0" expanded="true" />
+                <element signature="e#3217#3218#0" expanded="true" />
+                <element signature="e#5538#5539#0" expanded="true" />
+                <element signature="e#5578#5579#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1495,8 +1512,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/workout/ExerciseSet.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/workout/ExerciseRep.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/workout/Workout.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/cache/Exercises.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/workout/Workout.java" />
       </list>
     </option>
   </component>
@@ -1670,6 +1687,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Fitness App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Fitness App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2085,6 +2136,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58419245">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2092,6 +2144,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14604811">
           <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2099,6 +2152,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43814433">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2145,8 +2199,8 @@
         <state vertical-scroll-proportion="0.3320965">
           <caret line="55" column="11" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
           <folding>
-            <element signature="e#2186#2187#0" expanded="true" />
-            <element signature="e#2236#2237#0" expanded="true" />
+            <element signature="e#2186#2187#0" expanded="false" />
+            <element signature="e#2236#2237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2223,22 +2277,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/workout/Workout.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/cache/Exercises.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.9387755">
-          <caret line="284" column="7" selection-start-line="284" selection-start-column="7" selection-end-line="284" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
           <folding>
-            <element signature="e#6856#6857#0" expanded="true" />
-            <element signature="e#6896#6897#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/cache/Exercises.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wolfbytestudio/fitness/workout/Workout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8200371">
-          <caret line="163" column="40" selection-start-line="163" selection-start-column="40" selection-end-line="163" selection-end-column="40" />
-          <folding />
+        <state vertical-scroll-proportion="0.77922076">
+          <caret line="292" column="0" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
+          <folding>
+            <element signature="e#3167#3168#0" expanded="true" />
+            <element signature="e#3217#3218#0" expanded="true" />
+            <element signature="e#5538#5539#0" expanded="true" />
+            <element signature="e#5578#5579#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -3,8 +3,8 @@
 
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#0F1013" />
-            <corners android:radius="0dp" />
+            <solid android:color="#0F1013"/>
+            <corners android:radius="0dp"/>
         </shape>
     </item>
 
@@ -14,8 +14,8 @@
         android:right="0dp"
         android:top="0dp">
         <shape android:shape="rectangle">
-            <solid android:color="#323336" />
-            <corners android:radius="0dp" />
+            <solid android:color="#323336"/>
+            <corners android:radius="0dp"/>
         </shape>
     </item>
 </layer-list>

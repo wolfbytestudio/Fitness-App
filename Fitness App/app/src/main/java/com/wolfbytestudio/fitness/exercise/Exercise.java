@@ -168,7 +168,13 @@ public class Exercise implements Serializable
     /**
      * How much calories is burned per exercise
      */
-    public float getCaloriesBurned() { return caloriesBurned; }
+    public float getCaloriesBurned()
+    {
+        return caloriesBurned;
+    }
 
-    public void setCaloriesBurned(float caloriesBurned) { this.caloriesBurned = caloriesBurned; }
+    public void setCaloriesBurned(float caloriesBurned)
+    {
+        this.caloriesBurned = caloriesBurned;
+    }
 }

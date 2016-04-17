@@ -1,16 +1,14 @@
 [
   {
-    "caloriesBurned":0.9,
-    "category":"STANDARD",
-    "difficulty":"MEDIUM",
-    "equipment":
-    [
+    "caloriesBurned": 0.9,
+    "category": "STANDARD",
+    "difficulty": "MEDIUM",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "FOREARMS",
       "CHEST",
       "QUADRICEPS",
@@ -21,21 +19,19 @@
       "TOP_ABS",
       "TRICEPS"
     ],
-    "name":"Burpees",
-    "points":3
+    "name": "Burpees",
+    "points": 3
   },
   {
-    "caloriesBurned":0.2,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.2,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "SHOULDERS",
       "BICEPS",
       "TRICEPS",
@@ -43,110 +39,98 @@
       "QUADRICEPS",
       "HAMSTRINGS"
     ],
-    "name":"Mountain Climbers",
-    "points":1
+    "name": "Mountain Climbers",
+    "points": 1
   },
   {
-    "caloriesBurned":0.21,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.21,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "TOP_ABS"
     ],
-    "name":"Cross Crunches",
-    "points":1
+    "name": "Cross Crunches",
+    "points": 1
   },
   {
-    "caloriesBurned":0.2,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.2,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "TOP_ABS"
     ],
-    "name":"Crunches",
-    "points":1
+    "name": "Crunches",
+    "points": 1
   },
   {
-    "caloriesBurned":0.2,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.2,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "TOP_ABS",
       "OBLIQUES"
     ],
-    "name":"Heel touches",
-    "points":1
+    "name": "Heel touches",
+    "points": 1
   },
   {
-    "caloriesBurned":0.43,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.43,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "QUADRICEPS",
       "HAMSTRINGS",
       "CALVES"
     ],
-    "name":"High Jumps",
-    "points":1
+    "name": "High Jumps",
+    "points": 1
   },
   {
-    "caloriesBurned":0.18,
-    "category":"STANDARD",
-    "difficulty":"MEDIUM",
-    "equipment":
-    [
+    "caloriesBurned": 0.18,
+    "category": "STANDARD",
+    "difficulty": "MEDIUM",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "BOTTOM_ABS",
       "TOP_ABS"
     ],
-    "name":"Leg Raises",
-    "points":2
+    "name": "Leg Raises",
+    "points": 2
   },
   {
-    "caloriesBurned":0.203,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.203,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "GLUTES",
       "HAMSTRINGS",
       "QUADRICEPS",
@@ -157,118 +141,105 @@
       "UPPER_BACK",
       "MIDDLE_BACK"
     ],
-    "name":"Lunges",
-    "points":1
+    "name": "Lunges",
+    "points": 1
   },
   {
-    "caloriesBurned":0.3,
-    "category":"STANDARD",
-    "difficulty":"INSANE",
-    "equipment":
-    [
+    "caloriesBurned": 0.3,
+    "category": "STANDARD",
+    "difficulty": "INSANE",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "HAMSTRINGS",
       "GLUTES",
       "QUADRICEPS"
     ],
-    "name":"One Legged Squats",
-    "points":5
+    "name": "One Legged Squats",
+    "points": 5
   },
   {
-    "caloriesBurned":0.085,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.085,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "SHOULDERS",
       "TRICEPS",
       "CHEST"
     ],
-    "name":"Push-ups",
-    "points":1
+    "name": "Push-ups",
+    "points": 1
   },
   {
-    "caloriesBurned":0,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":true,
-    "muscles":
-    [
-
+    "imageId": 0,
+    "isTimed": true,
+    "muscles": [
     ],
-    "name":"Rest",
-    "points":1
+    "name": "Rest",
+    "points": 1
   },
   {
-    "caloriesBurned":0.157,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.157,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "TOP_ABS",
       "BOTTOM_ABS"
     ],
-    "name":"Sit-ups",
-    "points":1
+    "name": "Sit-ups",
+    "points": 1
   },
   {
-    "caloriesBurned":0.203,
-    "category":"STANDARD",
-    "difficulty":"EASY",
-    "equipment":
-    [
+    "caloriesBurned": 0.203,
+    "category": "STANDARD",
+    "difficulty": "EASY",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "LOWER_BACK",
       "HAMSTRINGS",
       "GLUTES",
       "QUADRICEPS"
     ],
-    "name":"Squats",
-    "points":1
+    "name": "Squats",
+    "points": 1
   },
   {
-    "caloriesBurned":0.1,
-    "category":"STANDARD",
-    "difficulty":"MEDIUM",
-    "equipment":
-    [
+    "caloriesBurned": 0.1,
+    "category": "STANDARD",
+    "difficulty": "MEDIUM",
+    "equipment": [
       "NONE"
     ],
-    "imageId":0,
-    "isTimed":false,
-    "muscles":
-    [
+    "imageId": 0,
+    "isTimed": false,
+    "muscles": [
       "TRICEPS",
       "CHEST"
     ],
-    "name":"Triangle Push-Ups",
-    "points":3
+    "name": "Triangle Push-Ups",
+    "points": 3
   }
 ]
