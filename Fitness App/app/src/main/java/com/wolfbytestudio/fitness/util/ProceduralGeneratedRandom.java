@@ -15,6 +15,7 @@ public class ProceduralGeneratedRandom
     private static final long MULTIPLYER = 0x5DEECE66DL;
     private static final long ADD_END = 0xBL;
     private static final long MASK = (2L << 48) - 1;
+
     /**
      * Bad bound message, for exceptions
      */

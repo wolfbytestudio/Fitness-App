@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.wolfbytestudio.fitness.Constants;
 import com.wolfbytestudio.fitness.MainActivity;
 import com.wolfbytestudio.fitness.R;
 import com.wolfbytestudio.fitness.exercise.Category;
@@ -21,28 +22,33 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * The cache that contains all the users exercises and instances
+ *
+ * @author Zack Davidson <<zackdavidson2014@outlook.com>>
+ * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
+ */
 public class Exercises
 {
+
+    /**
+     * Private constructor
+     */
+    private Exercises()
+    {
+        throw Constants.CANNOT_INIT;
+    }
 
     /**
      * Gson object used for loading all exercises in the list
      */
     public static final Gson GSON = new Gson();
+
     /**
      * A List of all Exercises
      */
     private static List<Exercise> exercises = new ArrayList<>();
 
-
-
-    private static final Exercise REST = new Exercise("Rest", null, null, Difficulty.EASY, Category.STANDARD, 0, true, 0.01F);
-
-
-    public static final Exercise getRest()
-    {
-        return REST;
-    }
     /**
      * Returns the {@link exercises} list
      *
@@ -105,9 +111,7 @@ public class Exercises
         InputStream ins = main.getResources().openRawResource(R.raw.exercises);
         String json = readTextFile(ins);
 
-        Type listType = new TypeToken<ArrayList<Exercise>>()
-        {
-        }.getType();
+        Type listType = new TypeToken<ArrayList<Exercise>>(){}.getType();
 
         exercises = GSON.fromJson(json, listType);
 
@@ -118,7 +122,7 @@ public class Exercises
     }
 
     /**
-     * Reads all text from a file
+     * Reads all text from a file and returns it as a string
      *
      * @param inputStream - the input stream
      * @return - the files string
@@ -128,15 +132,18 @@ public class Exercises
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
         byte buf[] = new byte[1024];
-        int len;
+        int length;
+
         try
         {
-            while ((len = inputStream.read(buf)) != -1)
+            while ((length = inputStream.read(buf)) != -1)
             {
-                outputStream.write(buf, 0, len);
+                outputStream.write(buf, 0, length);
             }
+
             outputStream.close();
             inputStream.close();
+
         } catch (IOException e)
         {
 
@@ -149,7 +156,7 @@ public class Exercises
      *
      * @return - a random {@link exercises}
      */
-    public Exercise getRandom()
+    public static Exercise getRandom()
     {
         return exercises.get(Utility.getRandomIndex(listCount()));
     }
@@ -161,7 +168,7 @@ public class Exercises
      * @param rnd - the ProceduralGeneratedRandom object
      * @return - an exercise
      */
-    public Exercise getRandom(ProceduralGeneratedRandom rnd)
+    public static Exercise getRandom(ProceduralGeneratedRandom rnd)
     {
         return exercises.get(rnd.getRandomInt(listCount()));
     }
@@ -173,7 +180,7 @@ public class Exercises
      * @param muscleGroup - the muscle group
      * @return - the exercise
      */
-    public Exercise getRandomForMuscle(MuscleGroup muscleGroup)
+    public static Exercise getRandomForMuscle(MuscleGroup muscleGroup)
     {
         Exercise ex = getRandom();
 
@@ -191,7 +198,7 @@ public class Exercises
      * @param equipment - The equipment to get an exercise from
      * @return - the new exercise
      */
-    public Exercise getRandomForEquipment(Equipment equipment)
+    public static Exercise getRandomForEquipment(Equipment equipment)
     {
         Exercise ex = getRandom();
 
@@ -209,7 +216,7 @@ public class Exercises
      * @param index - the index
      * @return - the exercise
      */
-    public Exercise getIndex(int index)
+    public static Exercise getIndex(int index)
     {
         return exercises.get(index);
     }

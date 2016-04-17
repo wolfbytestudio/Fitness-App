@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.wolfbytestudio.fitness.Constants;
 import com.wolfbytestudio.fitness.workout.Workout;
 
-import java.util.Date;
 import java.util.Random;
 import java.util.UUID;
 
@@ -21,23 +21,27 @@ public class Utility
 {
 
     /**
-     * Random object
+     * Random object to generate random numbers
      */
-    private static final Random RND = new Random();
+    private static final Random RANDOM = new Random();
+
     /**
      * Bad value exception
      */
     private static final IllegalArgumentException BAD_VALUE =
             new IllegalArgumentException("Value must be positive");
+
     /**
      * The current workout object, place holder
      */
-    public static Workout workout = null;
+    public static Workout workout;
+
     /**
      * Private Utility class
      */
     private Utility()
     {
+        throw Constants.CANNOT_INIT;
     }
 
     /**
@@ -50,7 +54,7 @@ public class Utility
     {
         if (max < 1) throw BAD_VALUE;
 
-        return RND.nextInt(max);
+        return RANDOM.nextInt(max);
     }
 
     /**
@@ -65,7 +69,6 @@ public class Utility
         String seed = UUID.randomUUID().toString();
         return seed.substring(0, length).replace("-", "");
     }
-
 
     /**
      * Formats a string value to capitalize the first letter
@@ -82,13 +85,13 @@ public class Utility
     /**
      * Formats the date, redundant code
      *
-     * @param date - the date to format
+     * @param time - the date to format
      * @return - String formatted time
      */
-    public static String getFormattedDate(long date)
+    public static String getFormattedDate(long time)
     {
         String outPut = "";
-        //TODO
+        //// TODO: 18/04/2016 - format time to hh:mm:ss
         return outPut;
     }
 
@@ -101,6 +104,7 @@ public class Utility
     public static void setListViewHeightBasedOnChildren(ListView listView)
     {
         ListAdapter listAdapter = listView.getAdapter();
+
         if (listAdapter == null)
         {
             return;

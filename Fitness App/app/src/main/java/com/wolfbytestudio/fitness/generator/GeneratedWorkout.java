@@ -19,7 +19,10 @@ import java.util.List;
 public class GeneratedWorkout
 {
 
-    private static String name;
+    /**
+     * The seed of the seed
+     */
+    private static String seed;
 
     /**
      * Private constructor, cannot initialize this class
@@ -39,7 +42,7 @@ public class GeneratedWorkout
      */
     public static Workout generateWorkout(String seed)
     {
-        name = seed;
+        GeneratedWorkout.seed = seed;
         return generateWorkout(seed.hashCode());
     }
 
@@ -53,7 +56,7 @@ public class GeneratedWorkout
     {
         Workout workout = new Workout();
 
-        workout.setWorkoutName(name);
+        workout.setWorkoutName(GeneratedWorkout.seed);
         ProceduralGeneratedRandom rnd = new ProceduralGeneratedRandom(seed);
 
         Difficulty dif = Difficulty.getRandom(rnd);
@@ -96,7 +99,7 @@ public class GeneratedWorkout
         for (Exercise exersice : list)
         {
 
-            round.addSet(new ExerciseRep(generateAmount(exersice, dif, rnd), exersice.getName()));
+            round.addSet(new ExerciseRep(generateAmount(dif, rnd), exersice.getName()));
         }
 
         return round;
@@ -105,12 +108,11 @@ public class GeneratedWorkout
     /**
      * Generates the amount of exercise reps/seconds to do
      *
-     * @param ex  - The exercise itself
      * @param dif - The Difficulty of the workout
      * @param rnd - The random number Generator to generate the same result based on seed
      * @return - The workout rep/seconds amount
      */
-    private static int generateAmount(Exercise ex, Difficulty dif, ProceduralGeneratedRandom rnd)
+    private static int generateAmount(Difficulty dif, ProceduralGeneratedRandom rnd)
     {
         int amount;
 
