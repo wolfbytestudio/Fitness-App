@@ -11,24 +11,23 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The cache that contains all the users workouts
+ *
+ * @author Zack Davidson <<zackdavidson2014@outlook.com>>
+ * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
+ */
 public class Cache
 {
 
     private static final Cache instance = new Cache();
-    private final Exercises EXERCISES = new Exercises();
+
     private List<Workout> workouts = new ArrayList<>();
 
     public static final Cache getCache()
     {
         return instance;
     }
-
-    public final Exercises getExercises()
-    {
-        return EXERCISES;
-    }
-
-
 
     public List<Workout> getWorkouts()
     {
@@ -50,19 +49,7 @@ public class Cache
      */
     public void saveWorkouts()
     {
-        try
-        {
-            FileOutputStream file = new FileOutputStream("workouts.wolfbyte");
-            ObjectOutputStream obj = new ObjectOutputStream(file);
-
-            obj.writeObject(workouts);
-
-            file.close();
-            obj.close();
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+       //// TODO: 18/04/2016 - save using JSON
     }
 
     /**
@@ -70,18 +57,6 @@ public class Cache
      */
     public void loadWorkouts()
     {
-        try
-        {
-            FileInputStream file = new FileInputStream("workouts.wolfbyte");
-            ObjectInputStream obj = new ObjectInputStream(file);
-
-            workouts = (List<Workout>) obj.readObject();
-
-            file.close();
-            obj.close();
-        } catch (IOException | ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
+       //// TODO: 18/04/2016 - load using JSON
     }
 }
