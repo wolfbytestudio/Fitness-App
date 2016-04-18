@@ -36,6 +36,18 @@ public class ExerciseRep implements Serializable
     }
 
     /**
+     * Default Constructor
+     *
+     * Sets amount to 1
+     * Sets Exercise to null
+     */
+    public ExerciseRep()
+    {
+        setAmount(1);
+        setExercise("null");
+    }
+
+    /**
      * Gets the exercise
      *
      * @return - the Exercise object
@@ -66,6 +78,13 @@ public class ExerciseRep implements Serializable
         this.amount = amount;
     }
 
+    /**
+     * Formats the amount of reps
+     *
+     * If the exercise is timed it will return AMOUNT seconds
+     * else it will return AMOUNT
+     * @return
+     */
     public String getFormattedAmount()
     {
         String out = "";

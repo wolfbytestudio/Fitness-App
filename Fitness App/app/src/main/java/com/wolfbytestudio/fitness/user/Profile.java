@@ -9,7 +9,8 @@ import com.google.gson.Gson;
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  */
-public class Profile
+public class
+        Profile
 {
 
     /**

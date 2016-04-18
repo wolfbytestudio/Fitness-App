@@ -140,11 +140,12 @@ public class GeneratedWorkout
         int amount = rnd.getRandomBoolean() ? 3 : 5;
 
         List<Exercise> ls = new ArrayList<>();
+
         for (int i = 0; i < amount; i++)
         {
             Exercise current = Exercises.getRandom(rnd);
 
-            while (ls.contains(current) && !current.getName().equalsIgnoreCase("rest"))
+            while (ls.contains(current) && current.getName().equalsIgnoreCase("Rest"))
             {
                 current = Exercises.getRandom(rnd);
             }

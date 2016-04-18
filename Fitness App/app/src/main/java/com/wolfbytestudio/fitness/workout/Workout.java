@@ -162,6 +162,11 @@ public class Workout implements Serializable, Cloneable
         return ls;
     }
 
+    /**
+     * Formats a muscle group and return it as a string
+     * @param list - the list of muscles
+     * @return - the formatted muscle group
+     */
     public String formatMuscleGroups(List<MuscleGroup> list)
     {
         String out = "";
