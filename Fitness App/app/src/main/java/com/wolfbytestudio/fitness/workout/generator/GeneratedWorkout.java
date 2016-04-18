@@ -145,7 +145,7 @@ public class GeneratedWorkout
         {
             Exercise current = Exercises.getRandom(rnd);
 
-            while (ls.contains(current) && current.getName().equalsIgnoreCase("Rest"))
+            while (ls.contains(current) || current.getName().equalsIgnoreCase("Rest"))
             {
                 current = Exercises.getRandom(rnd);
             }

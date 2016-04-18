@@ -50,7 +50,7 @@ public class MainActivity extends Activity
 
         Workout newWorkout = Workout.fromJson(gson);
 
-        newWorkout.setWorkoutName("fucking poopy");
+        newWorkout.setWorkoutName("Zack");
 
         Log.d("abcd", newWorkout.toJson());
 
