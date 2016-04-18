@@ -46,9 +46,9 @@ public class MainActivity extends Activity
 
         Utility.workout = GeneratedWorkout.generateWorkout("Zack");
 
-        String gson = Utility.workout.toJson();
+        String json = Utility.workout.toJson();
 
-        Workout newWorkout = Workout.fromJson(gson);
+        Workout newWorkout = Workout.fromJson(json);
 
         newWorkout.setWorkoutName("Zack");
 

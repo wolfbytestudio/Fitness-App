@@ -57,7 +57,6 @@ public class Workout implements Serializable, Cloneable
     private long bestTime;
 
     public List<WorkoutRound> getRounds()  { return rounds; }
-
     public void setRounds(List<WorkoutRound> rounds)
     {
         this.rounds = rounds;
@@ -67,14 +66,12 @@ public class Workout implements Serializable, Cloneable
     {
         return difficulty;
     }
-
     public void setDifficulty(Difficulty difficulty)
     {
         this.difficulty = difficulty;
     }
 
     public String getWorkoutName() { return workoutName; }
-
     public void setWorkoutName(String workoutName)
     {
         this.workoutName = workoutName;
@@ -84,7 +81,6 @@ public class Workout implements Serializable, Cloneable
     {
         return type;
     }
-
     public void setType(WorkoutType type)
     {
         this.type = type;
@@ -94,7 +90,6 @@ public class Workout implements Serializable, Cloneable
     {
         return bestTime;
     }
-
     public void setBestTime(long time)
     {
         this.bestTime = time;
@@ -104,12 +99,10 @@ public class Workout implements Serializable, Cloneable
     {
         timesComplete++;
     }
-
     public int getTimesComplete()
     {
         return timesComplete;
     }
-
     public void setTimesComplete(int timesComplete)
     {
         this.timesComplete = timesComplete;
