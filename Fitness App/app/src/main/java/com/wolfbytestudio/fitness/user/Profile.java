@@ -2,7 +2,6 @@ package com.wolfbytestudio.fitness.user;
 
 import com.google.gson.Gson;
 
-import java.util.Locale;
 
 /**
  * The user profile for the fitness app
