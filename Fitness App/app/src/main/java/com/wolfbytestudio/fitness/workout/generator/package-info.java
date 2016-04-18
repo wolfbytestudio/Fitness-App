@@ -11,4 +11,4 @@
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  *
  */
-package com.wolfbytestudio.fitness.generator;
+package com.wolfbytestudio.fitness.workout.generator;

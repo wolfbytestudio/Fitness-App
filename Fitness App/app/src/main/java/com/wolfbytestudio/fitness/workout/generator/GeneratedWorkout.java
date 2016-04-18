@@ -1,6 +1,5 @@
-package com.wolfbytestudio.fitness.generator;
+package com.wolfbytestudio.fitness.workout.generator;
 
-import com.wolfbytestudio.fitness.cache.Cache;
 import com.wolfbytestudio.fitness.cache.Exercises;
 import com.wolfbytestudio.fitness.exercise.Difficulty;
 import com.wolfbytestudio.fitness.exercise.Exercise;
@@ -62,7 +61,7 @@ public class GeneratedWorkout
         Difficulty dif = Difficulty.getRandom(rnd);
         workout.setDifficulty(dif);
 
-        int rounds = rnd.getRandomBoolean() == true ? dif.getMultiplier() : dif.getMultiplier() + 2;
+        int rounds = rnd.getRandomBoolean() ? dif.getMultiplier() : dif.getMultiplier() + 2;
 
         WorkoutType wt = WorkoutType.getRandom(rnd);
         workout.setType(wt);
@@ -138,16 +137,16 @@ public class GeneratedWorkout
      */
     private static List<Exercise> generateExerciseList(ProceduralGeneratedRandom rnd)
     {
-        int amount = rnd.getRandomBoolean() == true ? 3 : 5;
+        int amount = rnd.getRandomBoolean() ? 3 : 5;
 
         List<Exercise> ls = new ArrayList<>();
         for (int i = 0; i < amount; i++)
         {
-            Exercise current = Cache.getCache().getExercises().getRandom(rnd);
+            Exercise current = Exercises.getRandom(rnd);
 
             while (ls.contains(current) && !current.getName().equalsIgnoreCase("rest"))
             {
-                current = Cache.getCache().getExercises().getRandom(rnd);
+                current = Exercises.getRandom(rnd);
             }
 
             ls.add(current);

@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.wolfbytestudio.fitness.cache.Exercises;
-import com.wolfbytestudio.fitness.generator.GeneratedWorkout;
+import com.wolfbytestudio.fitness.workout.generator.GeneratedWorkout;
 import com.wolfbytestudio.fitness.ui.adaptor.WorkoutRoundAdapter;
 import com.wolfbytestudio.fitness.util.Utility;
 import com.wolfbytestudio.fitness.workout.Workout;
