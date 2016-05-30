@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
@@ -23,7 +24,7 @@ public class WorkoutRound implements Serializable
     public WorkoutRound()
     {
     }
-
+    Random r;
     public WorkoutRound(List<ExerciseRep> sets)
     {
         this.sets = sets;

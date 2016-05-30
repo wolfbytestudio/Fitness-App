@@ -3,181 +3,186 @@ package com.wolfbytestudio.fitness.util;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Procedural generated random will always generate
- * the same random number in sequence
+ * This class is a copy of the {@see java.util.Random}
  *
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  */
 public class ProceduralGeneratedRandom
 {
+    //private static final long serialVersionUID = 3905348978240129619L;
 
-    private static final long MULTIPLYER = 0x5DEECE66DL;
-    private static final long ADD_END = 0xBL;
-    private static final long MASK = (2L << 48) - 1;
-
-    /**
-     * Bad bound message, for exceptions
-     */
-    private static final String BAD_BOUND = "bound must be positive";
-    private static final double DOUBLE_UNIT = 0x1.0p-53;
-    private final AtomicLong seed;
+    private static final long multiplier = 0x5deece66dL;
 
     /**
-     * Constructor which takes in a seed
+     * The boolean value indicating if the second Gaussian number is available.
      *
-     * @param seed - the seed
+     * @serial
      */
-    public ProceduralGeneratedRandom(long seed)
-    {
-        if (getClass() == ProceduralGeneratedRandom.class)
-        {
-            this.seed = new AtomicLong(initialScramble(seed));
-        } else
-        {
-            this.seed = new AtomicLong();
-            setSeed(seed);
-        }
+    private boolean haveNextNextGaussian;
+
+    /**
+     * @serial It is associated with the internal state of this generator.
+     */
+    private long seed;
+
+    /**
+     * The second Gaussian generated number.
+     *
+     * @serial
+     */
+    private double nextNextGaussian;
+
+    /**
+     * Used to generate initial seeds.
+     */
+    private static volatile long seedBase = 0;
+
+    /**
+     * Constructs a random generator with an initial state that is
+     * unlikely to be duplicated by a subsequent instantiation.
+     */
+    public ProceduralGeneratedRandom() {
+        // Note: Don't use identityHashCode(this) since that causes the monitor to
+        // get inflated when we synchronize.
+        setSeed(System.nanoTime() + seedBase);
+        ++seedBase;
     }
 
     /**
-     * Initialises a scramble
+     * Construct a random generator with the given {@code seed} as the
+     * initial state. Equivalent to {@code Random r = new Random(); r.setSeed(seed);}.
      *
-     * @param seed - the new seed
-     * @return - the new long scramble
+     * <p>This constructor is mainly useful for <i>predictability</i> in tests.
+     * The default constructor is likely to provide better randomness.
      */
-    private static long initialScramble(long seed)
-    {
-        return (seed ^ MULTIPLYER) & MASK;
+    public ProceduralGeneratedRandom(long seed) {
+        setSeed(seed);
     }
 
     /**
-     * Sets the seed
+     * Returns a pseudo-random uniformly distributed {@code int} value of
+     * the number of bits specified by the argument {@code bits} as
+     * described by Donald E. Knuth in <i>The Art of Computer Programming,
+     * Volume 2: Seminumerical Algorithms</i>, section 3.2.1.
      *
-     * @param seed - the new seed
+     * <p>Most applications will want to use one of this class' convenience methods instead.
+     *
+     * <p>Subclasses only need to override this method to alter the behavior
+     * of all the public methods.
      */
-    public void setSeed(long seed)
-    {
-        this.seed.set(initialScramble(seed));
+    protected synchronized int next(int bits) {
+        seed = (seed * multiplier + 0xbL) & ((1L << 48) - 1);
+        return (int) (seed >>> (48 - bits));
     }
 
     /**
-     * Gets a next int to 32
-     *
-     * @return - a new random 32 bit number
+     * Returns a pseudo-random uniformly distributed {@code boolean}.
      */
-    public int getRandomInt()
-    {
-        return next(32);
-    }
-
-    /**
-     * generates a new int to a maximum of {@link bound}
-     *
-     * @param bound - the maximum amount
-     * @return - the new int
-     */
-    public int getRandomInt(int bound)
-    {
-        if (bound <= 0)
-        {
-            throw new IllegalArgumentException(BAD_BOUND);
-        }
-
-        int r = next(31);
-        int m = bound - 1;
-
-        if ((bound & m) == 0)
-        {
-            r = (int) ((bound * (long) r) >> 31);
-        } else
-        {
-            for (int u = r; u - (r = u % bound) + m < 0; u = next(31)) ;
-        }
-
-        return Math.abs(r);
-    }
-
-
-    /**
-     * Gets a random long
-     *
-     * @return
-     */
-    public long getRandomLong()
-    {
-        return ((long) (next(32)) << 32) + next(32);
-    }
-
-    /**
-     * Gets a random byte value
-     *
-     * @return - new byte value
-     */
-    public byte getRandomByte()
-    {
-        return (byte) next(8);
-    }
-
-    /**
-     * Gets a random short value
-     *
-     * @return - new short value
-     */
-    public short getRandomShort()
-    {
-        return (short) next(16);
-    }
-
-    /**
-     * Gets a random boolean value
-     *
-     * @return - new boolean value
-     */
-    public boolean getRandomBoolean()
-    {
+    public boolean nextBoolean() {
         return next(1) != 0;
     }
 
     /**
-     * Gets a random float value
-     *
-     * @return - new float value
+     * Fills {@code buf} with random bytes.
      */
-    public float getRandomFloat()
-    {
-        return next(24) / ((float) (1 << 24));
-    }
-
-    /**
-     * Gets a random double value
-     *
-     * @return - new double value
-     */
-    public double getRandomDouble()
-    {
-        return (((long) (next(26)) << 27) + next(27)) * DOUBLE_UNIT;
-    }
-
-    /**
-     * Private next
-     *
-     * @param bits - how many bits are in the number
-     * @return - the new next int
-     */
-    private int next(int bits)
-    {
-        long oldseed, nextseed;
-        AtomicLong seed = this.seed;
-
-        do
-        {
-            oldseed = seed.get();
-            nextseed = (oldseed * MULTIPLYER + ADD_END) & MASK;
+    public void nextBytes(byte[] buf) {
+        int rand = 0, count = 0, loop = 0;
+        while (count < buf.length) {
+            if (loop == 0) {
+                rand = nextInt();
+                loop = 3;
+            } else {
+                loop--;
+            }
+            buf[count++] = (byte) rand;
+            rand >>= 8;
         }
-        while (!seed.compareAndSet(oldseed, nextseed));
-
-        return (int) (nextseed >>> (48 - bits));
     }
 
+    /**
+     * Returns a pseudo-random uniformly distributed {@code double}
+     * in the half-open range [0.0, 1.0).
+     */
+    public double nextDouble() {
+        return ((((long) next(26) << 27) + next(27)) / (double) (1L << 53));
+    }
+
+    /**
+     * Returns a pseudo-random uniformly distributed {@code float}
+     * in the half-open range [0.0, 1.0).
+     */
+    public float nextFloat() {
+        return (next(24) / 16777216f);
+    }
+
+    /**
+     * Returns a pseudo-random (approximately) normally distributed
+     * {@code double} with mean 0.0 and standard deviation 1.0.
+     * This method uses the <i>polar method</i> of G. E. P. Box, M.
+     * E. Muller, and G. Marsaglia, as described by Donald E. Knuth in <i>The
+     * Art of Computer Programming, Volume 2: Seminumerical Algorithms</i>,
+     * section 3.4.1, subsection C, algorithm P.
+     */
+    public synchronized double nextGaussian() {
+        if (haveNextNextGaussian) {
+            haveNextNextGaussian = false;
+            return nextNextGaussian;
+        }
+
+        double v1, v2, s;
+        do {
+            v1 = 2 * nextDouble() - 1;
+            v2 = 2 * nextDouble() - 1;
+            s = v1 * v1 + v2 * v2;
+        } while (s >= 1 || s == 0);
+
+        // The specification says this uses StrictMath.
+        double multiplier = StrictMath.sqrt(-2 * StrictMath.log(s) / s);
+        nextNextGaussian = v2 * multiplier;
+        haveNextNextGaussian = true;
+        return v1 * multiplier;
+    }
+
+    /**
+     * Returns a pseudo-random uniformly distributed {@code int}.
+     */
+    public int nextInt() {
+        return next(32);
+    }
+
+    /**
+     * Returns a pseudo-random uniformly distributed {@code int}
+     * in the half-open range [0, n).
+     */
+    public int nextInt(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("n <= 0: " + n);
+        }
+        if ((n & -n) == n) {
+            return (int) ((n * (long) next(31)) >> 31);
+        }
+        int bits, val;
+        do {
+            bits = next(31);
+            val = bits % n;
+        } while (bits - val + (n - 1) < 0);
+        return val;
+    }
+
+    /**
+     * Returns a pseudo-random uniformly distributed {@code long}.
+     */
+    public long nextLong() {
+        return ((long) next(32) << 32) + next(32);
+    }
+
+    /**
+     * Modifies the seed using a linear congruential formula presented in <i>The
+     * Art of Computer Programming, Volume 2</i>, Section 3.2.1.
+     */
+    public synchronized void setSeed(long seed) {
+        this.seed = (seed ^ multiplier) & ((1L << 48) - 1);
+        haveNextNextGaussian = false;
+    }
 }

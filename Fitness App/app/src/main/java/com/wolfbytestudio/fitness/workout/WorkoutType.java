@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  */
-public enum WorkoutType implements Serializable
+public enum WorkoutType
 {
 
     /**
