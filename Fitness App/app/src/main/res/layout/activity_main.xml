@@ -7,9 +7,15 @@
                 tools:context=".MainActivity">
 
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/backgroundImage"/>
+
     <EditText
         android:id="@+id/txtSeed"
         android:layout_width="wrap_content"
+        android:text="rnd"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -47,6 +53,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:background="@null"
             android:paddingTop="5dp">
 
             <TextView
@@ -54,6 +61,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="25dp"
                 android:paddingLeft="5dp"
+                android:background="@null"
                 android:text="Name: Zack"
 
                 android:textSize="16dp"/>
@@ -73,6 +81,7 @@
                 android:layout_height="25dp"
                 android:layout_below="@id/lblWorkoutName"
                 android:layout_marginTop="1dp"
+                android:background="@null"
                 android:layout_toRightOf="@id/imgExperience"
                 android:paddingLeft="5dp"
                 android:text="0,000"
@@ -83,11 +92,13 @@
             android:id="@+id/rightInformation"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:background="@null"
             android:layout_toRightOf="@id/leftInformation">
 
             <TextView
                 android:id="@+id/lblDifficulty"
                 android:layout_width="fill_parent"
+                android:background="@null"
                 android:layout_height="25dp"
                 android:paddingLeft="5dp"
                 android:text="Difficulty: Insane"
@@ -106,6 +117,7 @@
                 android:id="@+id/lblRounds"
                 android:layout_width="fill_parent"
                 android:layout_height="25dp"
+                android:background="@null"
                 android:layout_below="@id/lblDifficulty"
                 android:layout_marginTop="2dp"
                 android:layout_toRightOf="@id/imgCalories"
@@ -121,6 +133,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rightInformation"
+            android:background="@null"
             android:layout_marginTop="8dp"
             android:paddingLeft="5dp"
             android:paddingTop="2dp"
@@ -134,6 +147,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:background="@null"
         android:layout_below="@+id/workoutDetails"/>
 
 

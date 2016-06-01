@@ -10,10 +10,9 @@ import java.util.Random;
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  */
-public class WorkoutRound implements Serializable
+public class WorkoutRound
 {
 
-    private static final long serialVersionUID = -7831129396127358218L;
     private List<ExerciseRep> sets = new ArrayList<>();
 
     public WorkoutRound(ExerciseRep[] sets)
@@ -24,7 +23,7 @@ public class WorkoutRound implements Serializable
     public WorkoutRound()
     {
     }
-    Random r;
+
     public WorkoutRound(List<ExerciseRep> sets)
     {
         this.sets = sets;
@@ -45,7 +44,7 @@ public class WorkoutRound implements Serializable
         sets.remove(set);
     }
 
-    public void removeLastRest()
+    public void removeLast()
     {
         removeSet(sets.size() - 1);
     }

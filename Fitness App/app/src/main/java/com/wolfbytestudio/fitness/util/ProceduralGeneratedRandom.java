@@ -79,7 +79,7 @@ public class ProceduralGeneratedRandom
     /**
      * Returns a pseudo-random uniformly distributed {@code boolean}.
      */
-    public boolean nextBoolean() {
+    public boolean getRandomBoolean() {
         return next(1) != 0;
     }
 
@@ -90,7 +90,7 @@ public class ProceduralGeneratedRandom
         int rand = 0, count = 0, loop = 0;
         while (count < buf.length) {
             if (loop == 0) {
-                rand = nextInt();
+                rand = getRandomInt();
                 loop = 3;
             } else {
                 loop--;
@@ -147,7 +147,7 @@ public class ProceduralGeneratedRandom
     /**
      * Returns a pseudo-random uniformly distributed {@code int}.
      */
-    public int nextInt() {
+    public int getRandomInt() {
         return next(32);
     }
 
@@ -155,7 +155,7 @@ public class ProceduralGeneratedRandom
      * Returns a pseudo-random uniformly distributed {@code int}
      * in the half-open range [0, n).
      */
-    public int nextInt(int n) {
+    public int getRandomInt(int n) {
         if (n <= 0) {
             throw new IllegalArgumentException("n <= 0: " + n);
         }

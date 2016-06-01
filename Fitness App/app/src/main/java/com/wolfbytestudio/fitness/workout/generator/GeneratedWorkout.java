@@ -1,5 +1,7 @@
 package com.wolfbytestudio.fitness.workout.generator;
 
+import android.util.Log;
+
 import com.wolfbytestudio.fitness.cache.Exercises;
 import com.wolfbytestudio.fitness.exercise.Difficulty;
 import com.wolfbytestudio.fitness.exercise.Exercise;
@@ -59,6 +61,7 @@ public class GeneratedWorkout
         ProceduralGeneratedRandom rnd = new ProceduralGeneratedRandom(seed);
 
         Difficulty dif = Difficulty.getRandom(rnd);
+
         workout.setDifficulty(dif);
 
         int rounds = rnd.getRandomBoolean() ? dif.getMultiplier() : dif.getMultiplier() + 2;
@@ -76,7 +79,6 @@ public class GeneratedWorkout
         for (int i = 0; i < rounds; i++)
         {
             workout.addRound(round);
-            System.out.println(round.toString());
         }
 
 
@@ -91,14 +93,14 @@ public class GeneratedWorkout
      * @param list - The list of exercises
      * @return - A Workout Round object
      */
-    private static WorkoutRound generateWorkoutRound(Difficulty dif, ProceduralGeneratedRandom rnd, List<Exercise> list)
+    private static WorkoutRound generateWorkoutRound(
+            Difficulty dif, ProceduralGeneratedRandom rnd, List<Exercise> list)
     {
         WorkoutRound round = new WorkoutRound();
 
         for (Exercise exersice : list)
         {
-
-            round.addSet(new ExerciseRep(generateAmount(dif, rnd), exersice.getName()));
+            round.addSet(new ExerciseRep(generateAmount(dif, rnd, exersice), exersice.getName()));
         }
 
         return round;
@@ -109,20 +111,21 @@ public class GeneratedWorkout
      *
      * @param dif - The Difficulty of the workout
      * @param rnd - The random number Generator to generate the same result based on seed
+     * @param exercise - The exercise
      * @return - The workout rep/seconds amount
      */
-    private static int generateAmount(Difficulty dif, ProceduralGeneratedRandom rnd)
+    private static int generateAmount(
+            Difficulty dif, ProceduralGeneratedRandom rnd, Exercise exercise)
     {
         int amount;
 
         int multiplier = rnd.getRandomInt(5) + 1;
 
-        amount = (((dif.getMultiplier() * 2) * multiplier) / 5) * 5;
+        int exercisePenalty = exercise.getDifficulty().getMultiplier() * rnd.getRandomInt(2);
 
-        if (amount == 0)
-        {
-            amount = 5;
-        }
+        amount = (((dif.getMultiplier() * 2) * multiplier));
+
+        amount = ((amount - exercisePenalty));
 
         return Math.abs(amount);
     }

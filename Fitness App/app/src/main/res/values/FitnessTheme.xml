@@ -4,9 +4,9 @@
     <style name="FitnessTheme" parent="android:Theme.Holo.Light">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:background">#1E1F22</item>
+        <item name="android:background">#F0F1F4</item>
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textColor">#F0F1F4</item>
+        <item name="android:textColor">#1E1F22</item>
         <item name="android:colorForeground">#F0F1F4</item>
         <item name="android:statusBarColor">#0F7BD7</item>
         <item name="android:colorControlNormal">#F0F1F4</item>

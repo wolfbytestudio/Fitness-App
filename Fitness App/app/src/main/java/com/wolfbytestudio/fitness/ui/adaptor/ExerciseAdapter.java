@@ -1,6 +1,7 @@
 package com.wolfbytestudio.fitness.ui.adaptor;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,7 @@ public class ExerciseAdapter extends BaseAdapter
         {
             view = inflater.inflate(R.layout.exercise, null);
         }
+
 
         ExerciseRep exercise = round.getSet(position);
 

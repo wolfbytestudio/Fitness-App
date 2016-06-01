@@ -21,10 +21,8 @@ import java.util.List;
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  */
-public class Workout implements Serializable, Cloneable
+public class Workout implements Cloneable
 {
-
-    private static final long serialVersionUID = 4583807712164476492L;
 
     /**
      * All the workout rounds that the workout contains
@@ -107,6 +105,7 @@ public class Workout implements Serializable, Cloneable
     {
         this.timesComplete = timesComplete;
     }
+
 
     @Override
     public Workout clone() throws CloneNotSupportedException
@@ -198,21 +197,38 @@ public class Workout implements Serializable, Cloneable
         return counter;
     }
 
+    /**
+     * Gets all equipment required to do a workout
+     * @return
+     */
     public List<Equipment> getEquipment()
     {
-        return null;
+        List<Equipment> ls = new ArrayList<>();
+
+        for (WorkoutRound round : rounds)
+        {
+            for (ExerciseRep set : round.getSets())
+            {
+                for (Equipment eq : set.getExercise().getEquipment())
+                {
+                    if (!ls.contains(eq))
+                    {
+                        ls.add(eq);
+                    }
+                }
+            }
+        }
+        return ls;
     }
 
     public void addRound(WorkoutRound round)
     {
         rounds.add(round);
     }
-
     public void removeRound(WorkoutRound round)
     {
         rounds.remove(round);
     }
-
     public WorkoutRound getRound(int index)
     {
         return rounds.get(index);
