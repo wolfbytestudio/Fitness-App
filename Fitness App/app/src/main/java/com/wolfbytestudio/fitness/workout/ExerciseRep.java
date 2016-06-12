@@ -9,9 +9,8 @@ import java.io.Serializable;
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
  */
-public class ExerciseRep implements Serializable
+public class ExerciseRep
 {
-    private static final long serialVersionUID = -3282963882168359755L;
 
     /**
      * The amount of reps to do

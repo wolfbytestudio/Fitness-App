@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
- * Contains utility methods
+ * This class contains utility methods
  *
  * @author Zack Davidson <<zackdavidson2014@outlook.com>>
  * @author Wolfbyte Studio <<Wolfbytestudio@gmail.com>>
@@ -58,8 +58,8 @@ public class Utility
     }
 
     /**
-     * Gets a random uuid with a length
-     * removes all - in the uuid
+     * Gets a random uuid with a specific length and
+     * removes all dashes (-) in the uuid
      *
      * @param length - the length of the uuid
      * @return - the new uuid
@@ -91,7 +91,7 @@ public class Utility
     public static String getFormattedDate(long time)
     {
         String outPut = "";
-        //// TODO: 18/04/2016 - format time to hh:mm:ss
+        // TODO: 18/04/2016 - format time to hh:mm:ss
         return outPut;
     }
 

@@ -1,7 +1,5 @@
 package com.wolfbytestudio.fitness.util;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 /**
  * This class is a copy of the {@see java.util.Random}
  *

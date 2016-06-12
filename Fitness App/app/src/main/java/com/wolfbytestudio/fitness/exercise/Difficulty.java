@@ -50,7 +50,7 @@ public enum Difficulty
     /**
      * The amount of difficulties there is
      *
-     * @return
+     * @return - the amount of difficulties there are
      */
     public static int count()
     {
@@ -66,15 +66,19 @@ public enum Difficulty
     public static Difficulty getRandom(ProceduralGeneratedRandom r)
     {
         int random = r.getRandomInt(count());
+
         if (random == 4)
+        {
             random = 3;
+        }
+
         return values()[random];
     }
 
     /**
      * Gets a random difficulty
      *
-     * @return
+     * @return - the difficulty selected
      */
     public static Difficulty getRandom()
     {
@@ -84,7 +88,7 @@ public enum Difficulty
     /**
      * Gets the multiplier
      *
-     * @return - the multiplier
+     * @return - the multiplier value
      */
     public int getMultiplier()
     {

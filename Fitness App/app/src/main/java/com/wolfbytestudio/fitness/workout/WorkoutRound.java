@@ -20,9 +20,7 @@ public class WorkoutRound
         this.sets = Arrays.asList(sets);
     }
 
-    public WorkoutRound()
-    {
-    }
+    public WorkoutRound() { }
 
     public WorkoutRound(List<ExerciseRep> sets)
     {

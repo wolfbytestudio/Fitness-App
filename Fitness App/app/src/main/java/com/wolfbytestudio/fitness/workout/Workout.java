@@ -8,11 +8,7 @@ import com.wolfbytestudio.fitness.exercise.Equipment;
 import com.wolfbytestudio.fitness.exercise.MuscleGroup;
 import com.wolfbytestudio.fitness.util.Utility;
 
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -54,59 +50,141 @@ public class Workout implements Cloneable
      */
     private long bestTime;
 
-    public List<WorkoutRound> getRounds()  { return rounds; }
+    /**
+     * Getter for {@link rounds}
+     *
+     * @return - {@link rounds}
+     */
+    public List<WorkoutRound> getRounds()
+    {
+        return rounds;
+    }
+
+    /**
+     * Setter for {@link rounds}
+     *
+     * @param rounds - the new {@link rounds}
+     */
     public void setRounds(List<WorkoutRound> rounds)
     {
         this.rounds = rounds;
     }
 
+    /**
+     * Getter for {@link difficulty}
+     *
+     * @return - {@link difficulty}
+     */
     public Difficulty getDifficulty()
     {
         return difficulty;
     }
+
+    /**
+     * Setter for {@link difficulty}
+     *
+     * @param difficulty - the new {@link difficulty}
+     */
     public void setDifficulty(Difficulty difficulty)
     {
         this.difficulty = difficulty;
     }
 
-    public String getWorkoutName() { return workoutName; }
+    /**
+     * Getter for {@link workoutName}
+     *
+     * @return - {@link workoutName}
+     */
+    public String getWorkoutName()
+    {
+        return workoutName;
+    }
+
+    /**
+     * Setter for {@link workoutName}
+     *
+     * @param workoutName - the new {@link workoutName}
+     */
     public void setWorkoutName(String workoutName)
     {
         this.workoutName = workoutName;
     }
 
+    /**
+     * Getter for {@link type}
+     *
+     * @return - {@link type}
+     */
     public WorkoutType getType()
     {
         return type;
     }
+
+    /**
+     * Setter for {@link type}
+     *
+     * @param type - the new {@link type}
+     */
     public void setType(WorkoutType type)
     {
         this.type = type;
     }
 
+    /**
+     * Getter for {@link bestTime}
+     *
+     * @return - {@link bestTime}
+     */
     public long getBestTime()
     {
         return bestTime;
     }
+
+    /**
+     * Setter for {@link time}
+     *
+     * @param time - the new {@link time}
+     */
     public void setBestTime(long time)
     {
         this.bestTime = time;
     }
 
-    public void complete()
+    /**
+     * Adds on a times complete to the workout
+     * This method adds 1 onto times complete
+     */
+    public void completeWorkout()
     {
         timesComplete++;
     }
+
+    /**
+     * Getter for {@link timesComplete}
+     *
+     * @return - {@link timesComplete}
+     */
     public int getTimesComplete()
     {
         return timesComplete;
     }
+
+    /**
+     * Setter for {@link timesComplete}
+     *
+     * @param timesComplete - the new {@link timesComplete}
+     */
     public void setTimesComplete(int timesComplete)
     {
         this.timesComplete = timesComplete;
     }
 
-
+    /**
+     * Clones a workout app
+     *
+     * @return - Returns the cloned object
+     * @throws CloneNotSupportedException -
+     */
     @Override
     public Workout clone() throws CloneNotSupportedException
     {
@@ -155,7 +233,9 @@ public class Workout implements Cloneable
     }
 
     /**
-     * Formats a muscle group and return it as a string
+     * Formats a muscle group and return it as a string in
+     * a comma separated format for example: Arms, Legs, Chest
+     *
      * @param list - the list of muscles
      * @return - the formatted muscle group
      */
@@ -169,7 +249,8 @@ public class Workout implements Cloneable
             if (counter == list.size())
             {
                 out += MuscleGroup.format(m);
-            } else
+            }
+            else
             {
                 out += MuscleGroup.format(m) + ", ";
             }
@@ -199,7 +280,8 @@ public class Workout implements Cloneable
 
     /**
      * Gets all equipment required to do a workout
-     * @return
+     *
+     * @return - the list of equipment
      */
     public List<Equipment> getEquipment()
     {
@@ -221,14 +303,32 @@ public class Workout implements Cloneable
         return ls;
     }
 
+    /**
+     * Adds a workout round to the workout
+     *
+     * @param round - the new round to add
+     */
     public void addRound(WorkoutRound round)
     {
         rounds.add(round);
     }
+
+    /**
+     * Removes a workout round by it's object
+     *
+     * @param round - the object to remove
+     */
     public void removeRound(WorkoutRound round)
     {
         rounds.remove(round);
     }
+
+    /**
+     * Gets a round by it's index in the list
+     *
+     * @param index - the index
+     * @return the workout round object
+     */
     public WorkoutRound getRound(int index)
     {
         return rounds.get(index);
@@ -284,7 +384,7 @@ public class Workout implements Cloneable
     /**
      * Converts the workout to a json string
      *
-     * @return
+     * @return - the string representation of a workout as a json string
      */
     public String toJson()
     {
@@ -295,7 +395,7 @@ public class Workout implements Cloneable
      * Loads a workout by json string
      *
      * @param json - the json string we are passing in
-     * @return
+     * @return - the workout object
      */
     public static Workout fromJson(String json)
     {
